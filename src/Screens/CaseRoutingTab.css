@@ -1,3 +1,30 @@
 .main_container{
-    background-color: #cccccc;
+    background-color: #f2f2f2;
+    width: fit-content;
+    width: 100%;
+}
+
+.cards{
+    display: flex;
+}
+
+
+.inner_div{
+    justify-content: space-between;
+    align-content: space-around;
+    align-items: flex-end;
+  }
+
+.cards_div{
+    /* height: 100px;  */
+	display: flex; 
+    justify-content: space-around;
+	/* justify-content: space-evenly;  */
+	/* text-decoration: none; */
+	/* border-radius: 6px; */
+  /* flex-direction: row; */
+}
+
+.card_para{
+    display: flex; 
 }

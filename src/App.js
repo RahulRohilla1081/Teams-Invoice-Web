@@ -4,6 +4,11 @@ import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-rou
 import Invoice from './Screens/InvoiceList'
 import InvoiceDetails from './Screens/InvoiceDetails';
 import InvoiceList from './Screens/InvoiceList';
+import BasicModal from './Screens/BasicModal';
+// import CommentsTab from './Screens/CommentsTab';
+// import Modal from './Screens/Modal'
+
+
 
 function App() {
   return (
@@ -11,6 +16,8 @@ function App() {
       <Routes>
       <Route path='/' element={<InvoiceList/>} />
         <Route path='/invoice_details' element={<InvoiceDetails />} />
+        <Route path='/modal' element={<BasicModal />} />
+        {/* <Route path='/modal' element={<Modal />} /> */}
       </Routes>
     </BrowserRouter>
   );
