@@ -17,7 +17,7 @@ function CaseRoutingTab() {
                         contentArrowStyle={{ borderRight: '7px solid  #fff' }}
                         date="15/10/2023"
                         iconStyle={{ background: '#279244', color: '#fff', }}
-                        icon={<AccountTreeIcon />}
+                        // icon={<AccountTreeIcon />}
                     >
 
                         <div className='inner_div'>
@@ -66,8 +66,8 @@ function CaseRoutingTab() {
                     <VerticalTimelineElement
                         className="vertical-timeline-element--work"
                         date="16/10/2023"
-                        iconStyle={{ background: '#110840', color: '#fff' }}
-                        icon={<Groups2Icon />}
+                        iconStyle={{ background: '#279244', color: '#fff' }}
+                        // icon={<Groups2Icon />}
                     >
                        <div className='inner_div'>
                             <h3 className="vertical-timeline-element-title">Step Name</h3>
@@ -101,8 +101,8 @@ function CaseRoutingTab() {
                     <VerticalTimelineElement
                         className="vertical-timeline-element--work"
                         date="17/10/2023"
-                        iconStyle={{ background: '#110840', color: '#fff' }}
-                        icon={<UpdateIcon />}
+                        iconStyle={{ background: '#f24b00', color: '#fff' }}
+                        // icon={<UpdateIcon />}
                     >
                         <div className='inner_div'>
                             <h3 className="vertical-timeline-element-title">Step Name</h3>
@@ -137,7 +137,7 @@ function CaseRoutingTab() {
                         className="vertical-timeline-element--work"
                         date="18/10/2023"
                         iconStyle={{ background: '#110840', color: '#fff' }}
-                        icon={<UpdateIcon />}
+                        // icon={<UpdateIcon />}
                     >
                         <div className='inner_div'>
                             <h3 className="vertical-timeline-element-title">Step Name</h3>
@@ -172,7 +172,7 @@ function CaseRoutingTab() {
                         className="vertical-timeline-element--work"
                         date="19/10/2023"
                         iconStyle={{ background: '#110840', color: '#fff' }}
-                        icon={<UpdateIcon />}
+                        // icon={<UpdateIcon />}
                     >
                         <div className='inner_div'>
                             <h3 className="vertical-timeline-element-title">Step Name</h3>

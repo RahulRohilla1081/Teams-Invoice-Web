@@ -8,7 +8,9 @@ function CommentsTab() {
     {
       ADDED_BY: "Rahul Rohilla",
       Date: "19/10/2023",
+      Comment: "This is the comment",
     },
+    
   ]);
   return (
     <div>
@@ -46,6 +48,13 @@ function CommentsTab() {
                 }}
               >
                 {val.Date}
+              </p>
+              <p
+                style={{
+                  marginLeft: 10,
+                }}
+              >
+                {val.Comment}
               </p>
             </div>
           );

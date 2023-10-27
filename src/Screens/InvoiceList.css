@@ -147,7 +147,7 @@ th {
   /* padding-top: 12px;
   padding-bottom: 12px; */
   text-align: center;
-  background-color: #110840;
+  background-color: #219de1;
   color: #fff;
   padding: 20px;
 
@@ -191,10 +191,17 @@ td {
 .header-style{
   background-image: url("../Images/background4.svg");
   padding: 10px;
+  /* background-color: beige; */
 }
 
 .main_heading{
   font-family: 'Times New Roman', Times, serif;
   font-size: 35px;
   font-weight: bold;
+}
+
+.form-details{
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
 }

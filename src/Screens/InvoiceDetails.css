@@ -1,0 +1,12 @@
+.nav-box{
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    position: -webkit-sticky;
+    position: sticky;
+    top:0
+}
+
+.main-header{
+    width:100%;
+}
