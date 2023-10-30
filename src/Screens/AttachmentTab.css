@@ -1,0 +1,125 @@
+/* .attach-main-container{
+  display: flex;
+  justify-content: space-between;
+} */
+
+ /* .horizontal-card{
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+
+} */
+
+.attach-main-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media only screen and (min-width : 992px) {
+
+
+  .scrollmenu {
+    margin: 4px, 4px;
+    padding: 4px;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    white-space: nowrap;
+    display: inline-block;  
+  }
+  
+  .scrollmenu-item {
+    /* display: inline-block;  */
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+    .card-class {
+      display: flex;
+    }
+    .attach-main-container{
+      display: inline;
+
+    }
+    .horizontal-card{
+      background-color: #333;
+      overflow: auto;
+      white-space: nowrap;
+      display: inline;
+    }
+    .scrollmenu {
+      margin: 4px, 4px;
+      padding: 4px;
+      width: 400px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      display: inline-block;
+    }
+    
+    .scrollmenu-item {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px;
+      text-decoration: none;
+    }
+  
+
+  }
+
+  
+  @media (max-width: 320px) {
+    .card-class {
+      display: inline; 
+      scroll-behavior: smooth;
+    }
+    .scrollmenu {
+      margin: 4px, 4px;
+      padding: 4px;
+      width: 400px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      display: inline-block;
+    }
+    
+    .scrollmenu-item {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px;
+      text-decoration: none;
+    }
+  
+  }
+/* 
+  .scrollmenu {
+    margin: 4px, 4px;
+    padding: 4px;
+    width: 400px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  
+  .scrollmenu-item {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  } */
+
+
+  
+
+  

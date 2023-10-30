@@ -8,12 +8,11 @@
     display: flex;
 }
 
-
-.inner_div{
+/* .inner_div{
     justify-content: space-between;
     align-content: space-around;
     align-items: flex-end;
-  }
+  } */
 
 .cards_div{
     /* height: 100px;  */

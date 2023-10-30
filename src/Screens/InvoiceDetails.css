@@ -4,9 +4,18 @@
     z-index: 1;
     position: -webkit-sticky;
     position: sticky;
-    top:0
+    top:0;    
 }
 
 .main-header{
     width:100%;
+}
+
+.tab-list{
+    background-color: white;
+    width: 100%;
+}
+
+.header-style{
+    background-image: url("../Images/triangle-mosaic.png");
 }

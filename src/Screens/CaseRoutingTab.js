@@ -115,7 +115,7 @@ function CaseRoutingTab() {
                             <h3 className="vertical-timeline-element-title">Group</h3>
                             {/* <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4> */}
                             <p className='card_para'>
-                                KRC_RE_AccountPayble_HO_Compliance
+                                KRC_RE_AccountPayble
                             </p>
                         </div>
                         <div className='inner_div'>
