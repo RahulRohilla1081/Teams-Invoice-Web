@@ -46,11 +46,7 @@ function InvoiceDetails() {
     },
   ]);
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-
-
-
-   
+    setValue(newValue);   
   };
 
   const style = {

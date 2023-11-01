@@ -4,7 +4,6 @@
 }
 
 .button_div {
-  /* height: 35px; */
   display: flex;
   justify-content: space-between;
   padding: 10px;
@@ -15,34 +14,29 @@
 }
 
 
-
-@media only screen and (min-width : 992px) {
-
-}
+@media only screen and (min-width : 992px) {}
 
 
 @media (max-width: 768px) {
-  .typo-style{
-  max-width:200px;
-  word-wrap: break-word;
-}
+  .typo-style {
+    max-width: 200px;
+    word-wrap: break-word;
+  }
 }
 
 
 @media (max-width: 320px) {
-  .typo-style{
-    max-width:200px;
+  .typo-style {
+    max-width: 200px;
     word-wrap: break-word;
   }
 }
 
 .button {
   background-color: #fff;
-  border: 1px solid #110840;
+  border: 1px solid #219de1;
   padding: 5px;
   position: relative;
-  /* width: 7.2em; */
-  /* height: 2em; */
   padding: 10px;
   transition: 0.5s;
   font-size: 17px;
@@ -51,12 +45,18 @@
 }
 
 .button:hover {
-  /* left: 0.6em; */
-  background-color: #110840;
+  background-color: #219de1;
   color: white;
 }
 
 .inner_div {
   justify-content: space-between;
   display: flex;
+}
+
+.typo-style {
+  color: "#595959";
+  font-weight: 500;
+  font-size: 15;
+  padding: 1px;
 }

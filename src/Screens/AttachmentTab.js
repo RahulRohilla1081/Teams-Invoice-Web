@@ -17,12 +17,12 @@ function AttachmentTab() {
   const FilesArr = [
     { id:1,FILE_NAME:"PDF 1", URL:"http://10.5.51.41:9000/sample.pdf"},
     { id:2,FILE_NAME:"PDF 2", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    { id:3,FILE_NAME:"PDF 3", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    { id:4,FILE_NAME:"PDF 4", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    { id:5,FILE_NAME:"PDF 5", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    { id:6,FILE_NAME:"PDF 6", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    { id:7,FILE_NAME:"PDF 7", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    { id:8,FILE_NAME:"PDF 8", URL:"http://10.5.51.41:9000/sample2.pdf"},
+    // { id:3,FILE_NAME:"PDF 3", URL:"http://10.5.51.41:9000/sample2.pdf"},
+    // { id:4,FILE_NAME:"PDF 4", URL:"http://10.5.51.41:9000/sample2.pdf"},
+    // { id:5,FILE_NAME:"PDF 5", URL:"http://10.5.51.41:9000/sample2.pdf"},
+    // { id:6,FILE_NAME:"PDF 6", URL:"http://10.5.51.41:9000/sample2.pdf"},
+    // { id:7,FILE_NAME:"PDF 7", URL:"http://10.5.51.41:9000/sample2.pdf"},
+    // { id:8,FILE_NAME:"PDF 8", URL:"http://10.5.51.41:9000/sample2.pdf"},
   ];
   const [SelectedFileURL,setSelectedFileURL]=useState({})
 
@@ -93,12 +93,17 @@ function AttachmentTab() {
 <button onClick={() => setShowPDF(true)}></button> 
       )} */}
       
-        <embed
+        {/* <embed
           src={SelectedFileURL}
           width="100%"
           height="550"
         >
-        </embed>
+        </embed> */}
+
+<object data={SelectedFileURL} type="application/pdf" width="100%" height="550"></object>
+
+{/* <iframe src={SelectedFileURL} width="100%" height="550"/> */}
+
 </div>
 
 {/* 

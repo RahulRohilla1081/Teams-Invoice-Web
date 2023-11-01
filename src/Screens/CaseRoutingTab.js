@@ -10,13 +10,13 @@ function CaseRoutingTab() {
     return (
         <>
             <div className='main_container'>
-                <VerticalTimeline>
-                    <VerticalTimelineElement
+                <VerticalTimeline  lineColor="#727272">
+                    <VerticalTimelineElement              
                         className="vertical-timeline-element--work"
                         contentStyle={{ background: '#fff', color: '#000000' }}
                         contentArrowStyle={{ borderRight: '7px solid  #fff' }}
                         date="15/10/2023"
-                        iconStyle={{ background: '#279244', color: '#fff', }}
+                        iconStyle={{ background: '#279244', color: '#fff', border: '2px solid #0000'  }}
                         // icon={<AccountTreeIcon />}
                     >
 
@@ -66,7 +66,7 @@ function CaseRoutingTab() {
                     <VerticalTimelineElement
                         className="vertical-timeline-element--work"
                         date="16/10/2023"
-                        iconStyle={{ background: '#279244', color: '#fff' }}
+                        iconStyle={{ background: '#279244', color: '#fff',  }}
                         // icon={<Groups2Icon />}
                     >
                        <div className='inner_div'>

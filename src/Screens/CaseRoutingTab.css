@@ -4,26 +4,22 @@
     width: 100%;
 }
 
+
 .cards{
     display: flex;
 }
 
-/* .inner_div{
-    justify-content: space-between;
-    align-content: space-around;
-    align-items: flex-end;
-  } */
 
 .cards_div{
-    /* height: 100px;  */
 	display: flex; 
     justify-content: space-around;
-	/* justify-content: space-evenly;  */
-	/* text-decoration: none; */
-	/* border-radius: 6px; */
-  /* flex-direction: row; */
 }
+
 
 .card_para{
     display: flex; 
 }
+
+/* .vertical-timeline-element--work .vertical-timeline-element-icon {
+    border: 5px solid #FF0000; 
+} */
