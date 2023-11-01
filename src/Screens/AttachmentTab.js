@@ -85,7 +85,7 @@ function AttachmentTab() {
 
         </div>
         <div style={{
-          width:"90%"
+          width:"100%"
         }}>
       {/* {showPDF ? (
 <PDFViewer />
