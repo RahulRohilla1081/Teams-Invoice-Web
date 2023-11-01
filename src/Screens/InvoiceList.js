@@ -37,9 +37,9 @@ function InvoiceList() {
     {
       Label: "Case ID",
     },
-    {
-      Label: "Invoice Type",
-    },
+    // {
+    //   Label: "Invoice Type",
+    // },
     {
       Label: "Business Line",
     },
@@ -64,12 +64,12 @@ function InvoiceList() {
     {
       Label: "Invoice Amount",
     },
-    {
-      Label: "CGST Amount",
-    },
-    {
-      Label: "SGST Amount",
-    },
+    // {
+    //   Label: "CGST Amount",
+    // },
+    // {
+    //   Label: "SGST Amount",
+    // },
     // {
     //     Label: "IGST Amount"
     // },
@@ -100,21 +100,21 @@ function InvoiceList() {
     // {
     //     Label: "Process"
     // },
-    // {
-    //     Label: "PO Number"
-    // },
+    {
+        Label: "PO Number"
+    },
     // {
     //     Label: "PO Type"
     // },
     // {
     //     Label: "Invoice Source"
     // },
-    // {
-    //     Label: "Invoice Receipt Date"
-    // },
-    // {
-    //     Label: "Urgent"
-    // },
+    {
+        Label: "Invoice Receipt Date"
+    },
+    {
+        Label: "Urgent"
+    },
     // {
     //     Label: "Business Place"
     // },
@@ -124,9 +124,9 @@ function InvoiceList() {
     // {
     //     Label: "Bill to Company GSTIN"
     // },
-    // {
-    //     Label: "Bill to Company Name"
-    // },
+    {
+        Label: "Bill to Company Name"
+    },
     // {
     //     Label: "Currency"
     // },
@@ -142,18 +142,18 @@ function InvoiceList() {
     // {
     //     Label: "Derived Payment Date"
     // },
-    // {
-    //     Label: "Vendor Name"
-    // },
+    {
+        Label: "Vendor Name"
+    },
     // {
     //     Label: "Vendor Code"
     // },
     // {
     //     Label: "Vendor GSTIN"
     // },
-    // {
-    //     Label: "MSME"
-    // },
+    {
+        Label: "MSME"
+    },
     // {
     //     Label: "Vendor Email"
     // },
@@ -730,7 +730,7 @@ function InvoiceList() {
                     </Typography>
                   </td>
 
-                  <td key={rowIndex}>{row["Invoice Type"]}</td>
+                  {/* <td key={rowIndex}>{row["Invoice Type"]}</td> */}
                   <td key={rowIndex}>{row["Business Line"]}</td>
                   <td key={rowIndex}>{row["Company Code"]}</td>
                   <td key={rowIndex}>{row["Plant"]}</td>
@@ -741,10 +741,10 @@ function InvoiceList() {
                   <td key={rowIndex}>
                     {row["Invoice Amount(inclusive of tax)"]}
                   </td>
-                  <td key={rowIndex}>{row["CGST Amount"]}</td>
+                  {/* <td key={rowIndex}>{row["CGST Amount"]}</td>
                   <td key={rowIndex}>{row["SGST Amount"]}</td>
-                  {/* <td key={rowIndex}>{row["IGST Amount"]}</td>
-                                    <td key={rowIndex}>{row["PO Tax Code"]}</td>
+                  <td key={rowIndex}>{row["IGST Amount"]}</td> */}
+                                    {/* <td key={rowIndex}>{row["PO Tax Code"]}</td>
                                     <td key={rowIndex}>{row["Fiscal Year"]}</td>
                                     <td key={rowIndex}>{row["TCS Amount"]}</td>
                                     <td key={rowIndex}>{row["Digital Sign"]}</td>
@@ -752,26 +752,26 @@ function InvoiceList() {
                                     <td key={rowIndex}>{row["Invoice Category"]}</td>
                                     <td key={rowIndex}>{row["Invoice Sub-Category"]}</td>
                                     <td key={rowIndex}>{row["Invoice Classification"]}</td>
-                                    <td key={rowIndex}>{row["Process"]}</td>
+                                    <td key={rowIndex}>{row["Process"]}</td> */}
                                     <td key={rowIndex}>{row["PO Number"]}</td>
-                                    <td key={rowIndex}>{row["PO Type"]}</td>
-                                    <td key={rowIndex}>{row["Invoice Source"]}</td>
+                                    {/* <td key={rowIndex}>{row["PO Type"]}</td>
+                                    <td key={rowIndex}>{row["Invoice Source"]}</td> */}
                                     <td key={rowIndex}>{row["Invoice Receipt Date"]}</td>
                                     <td key={rowIndex}>{row["Urgent"]}</td>
-                                    <td key={rowIndex}>{row["Business Place"]}</td>
+                                    {/* <td key={rowIndex}>{row["Business Place"]}</td>
                                     <td key={rowIndex}>{row["section Code"]}</td>
-                                    <td key={rowIndex}>{row["Bill to Company GSTIN"]}</td>
+                                    <td key={rowIndex}>{row["Bill to Company GSTIN"]}</td> */}
                                     <td key={rowIndex}>{row["Bill to Company Name"]}</td>
-                                    <td key={rowIndex}>{row["Currency"]}</td>
+                                    {/* <td key={rowIndex}>{row["Currency"]}</td>
                                     <td key={rowIndex}>{row["Initiator's Email Address"]}</td>
                                     <td key={rowIndex}>{row["Purchase Org"]}</td>
                                     <td key={rowIndex}>{row["Purchase Group"]}</td>
-                                    <td key={rowIndex}>{row["Derived Payment Date"]}</td>
+                                    <td key={rowIndex}>{row["Derived Payment Date"]}</td> */}
                                     <td key={rowIndex}>{row["Vendor Name"]}</td>
-                                    <td key={rowIndex}>{row["Vendor Code"]}</td>
-                                    <td key={rowIndex}>{row["Vendor GSTIN"]}</td>
+                                    {/* <td key={rowIndex}>{row["Vendor Code"]}</td> */}
+                                    {/* <td key={rowIndex}>{row["Vendor GSTIN"]}</td> */}
                                     <td key={rowIndex}>{row["MSME"]}</td>
-                                    <td key={rowIndex}>{row["Vendor Email"]}</td>
+                                    {/* <td key={rowIndex}>{row["Vendor Email"]}</td>
                                     <td key={rowIndex}>{row["Vendor Address"]}</td> */}
                 </tr>
               ))}
