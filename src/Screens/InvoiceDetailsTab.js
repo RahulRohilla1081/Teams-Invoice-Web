@@ -1,4 +1,4 @@
-import { Divider, Grid, TextField, Typography } from "@mui/material";
+import { Card, Divider, Grid, Paper, TextField, Typography } from "@mui/material";
 import { React, useState } from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
@@ -8,6 +8,10 @@ import Box from "@mui/material/Box";
 import "../Screens/InvoiceDetailsTab.css"
 import BasicModal from "./BasicModal";
 import Modal from "@mui/material/Modal";
+import Collapsible from "react-collapsible";
+import { BsCaretDown, BsCaretUpFill } from "react-icons/bs";
+import IMAGES from "../Images/IMAGES";
+
 
 function InvoiceDetailsTab(props) {
 
@@ -52,6 +56,7 @@ function InvoiceDetailsTab(props) {
     boxShadow: 24,
     p: 4,
   };
+  
 
   return (
     <>
@@ -68,9 +73,7 @@ function InvoiceDetailsTab(props) {
             justifyContent: "flex-end",
             margin: 10,
           }}
-        >
-  
-        </div>
+        ></div>
         <Modal
           open={open}
           onClose={handleClose}
@@ -131,7 +134,6 @@ function InvoiceDetailsTab(props) {
                     >
                       {val.Date}
                     </p>
-             
                   </div>
                   <div
                     style={{
@@ -147,503 +149,679 @@ function InvoiceDetailsTab(props) {
       </div>
 
       <div className="conatainer-background">
-      <Typography
-        sx={{
-          //   color: COLORS.white,
-          fontWeight: 700,
-          fontSize: 20,
-          p: 1,
-          color: "#fff",
-          backgroundColor: "#5a9cde",
-        }}
-      >
-        General
-      </Typography>
-      <Grid container spacing={1}>
-        <Grid item xs={gridSize}>
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Case ID
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Case ID"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Business Line
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Business Line"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Plant
-            </Typography>
-
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Plant"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Department
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Department"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Invoice Date
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Invoice Date"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              CGST Amount
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["CGST Amount"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography 
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              IGST Amount
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["IGST Amount"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Fiscal Year
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Fiscal Year"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Digital Sign
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Digital Sign"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Invoice Category
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Invoice Category"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Invoice Classification
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Invoice Classification"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              PO Number
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["PO Number"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Invoice Source
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Invoice Source"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Urgent
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Urgent"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Section Code
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Section Code"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Bill to Company Name
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Bill to Company Name"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Initiator's Email Address
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Initiator's Email Address"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Purchase Group
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Purchase Group"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Vendor Name
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Vendor Name"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Vendor GSTIN
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Vendor GSTIN"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Vendor Email
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Vendor Email"]}
-            </Typography>
-          </div>
-        </Grid>
-
-
-
-
-
-        <Grid item xs={gridSize}>
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Invoice Type
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Invoice Type"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Company Code
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Company Code"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Location
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Location"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Invoice Number
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Invoice Number"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Invoice Amount(inclusive of tax)
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Invoice Amount(inclusive of tax)"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              SGST Amount
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["SGST Amount"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              PO Tax Code
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["PO Tax Code"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              TCS Amount
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["TCS Amount"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              IRN Number
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["IRN Number"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Invoice Sub-Category
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Invoice Sub-Category"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Process
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Process"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              PO Type
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["PO Type"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Invoice Receipt Date
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Invoice Receipt Date"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Business Place
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Business Place"]},
-              {props.INVOICE_DETAILS["Invoice Receipt Date"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Bill to Company GSTIN
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Bill to Company GSTIN"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Currency
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Currency"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography 
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Purchase Org
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Purchase Org"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Derived Payment Date
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Purchase Org"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Vendor Code
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Vendor Code"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              MSME
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["MSME"]}
-            </Typography>
-          </div>
-          <Divider />
-          <div className="form-details">
-            <Typography
-              sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
-            >
-              Vendor Address
-            </Typography>
-            <Typography className="typo-style">
-              {props.INVOICE_DETAILS["Vendor Address"]}
-            </Typography>
+        <Typography
+          sx={{
+            //   color: COLORS.white,
+            fontWeight: 700,
+            fontSize: 20,
+            p: 1,
+            color: "#fff",
+            backgroundColor: "#5a9cde",
+          }}
+        >
+          General
+        </Typography>
+        <Grid container spacing={1}>
+          <Grid item xs={gridSize}>
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Case ID
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Case ID"]}
+              </Typography>
+            </div>
             <Divider />
-          </div>
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Business Line
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Business Line"]}
+              </Typography>
+            </div>
+            <Divider />
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Plant
+              </Typography>
+
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Plant"]}
+              </Typography>
+            </div>
+            <Divider />
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Department
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Department"]}
+              </Typography>
+            </div>
+            <Divider />
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Invoice Date
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Invoice Date"]}
+              </Typography>
+            </div>
+            <Divider />
+
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                PO Number
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["PO Number"]}
+              </Typography>
+            </div>
+            <Divider />
+
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Urgent
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Urgent"]}
+              </Typography>
+            </div>
+            <Divider />
+
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Bill to Company Name
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Bill to Company Name"]}
+              </Typography>
+            </div>
+            <Divider />
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Initiator's Email Address
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Initiator's Email Address"]}
+              </Typography>
+            </div>
+            <Divider />
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Purchase Group
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Purchase Group"]}
+              </Typography>
+            </div>
+            <Divider />
+          </Grid>
+
+          <Grid item xs={gridSize}>
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Company Code
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Company Code"]}
+              </Typography>
+            </div>
+            <Divider />
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Vendor Name
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Vendor Name"]}
+              </Typography>
+            </div>
+            <Divider />
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Location
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Location"]}
+              </Typography>
+            </div>
+            <Divider />
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Invoice Number
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Invoice Number"]}
+              </Typography>
+            </div>
+            <Divider />
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Invoice Amount(inclusive of tax)
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Invoice Amount(inclusive of tax)"]}
+              </Typography>
+            </div>
+            <Divider />
+
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Invoice Receipt Date
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Invoice Receipt Date"]}
+              </Typography>
+            </div>
+            <Divider />
+
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Bill to Company GSTIN
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Bill to Company GSTIN"]}
+              </Typography>
+            </div>
+            <Divider />
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Currency
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Currency"]}
+              </Typography>
+            </div>
+            <Divider />
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                Purchase Org
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["Purchase Org"]}
+              </Typography>
+            </div>
+            <Divider />
+
+            <div className="form-details">
+              <Typography
+                sx={{ color: "#595959", fontWeight: 600, fontSize: 20, p: 1 }}
+              >
+                MSME
+              </Typography>
+              <Typography className="typo-style">
+                {props.INVOICE_DETAILS["MSME"]}
+              </Typography>
+            </div>
+            <Divider />
+          </Grid>
         </Grid>
-      </Grid>
-      <div className="button_div">
-        <div className="inner_div">
-          <button className="button">Aceept</button>
-          <button className="button">Hold</button>
-          <button className="button">Reject</button>
-          {/* <button className="button">Release Work Item</button> */}
-          {/* <button className="button">Save & Close</button> */}
+
+        <Collapsible
+          trigger={
+            <Card
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+
+                padding: 10,
+              }}
+            >
+          
+              <p>Invoice Details</p>
+              <p>
+                <BsCaretDown />
+              </p>
+            </Card>
+          }
+          triggerStyle={{
+            color: "#4562d7",
+
+            marginLeft: 20,
+            marginRight: 20,
+          }}
+          triggerWhenOpen={
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                // marginLeft: 20,
+                // marginRight: 20,
+                padding: 10,
+              }}
+            >
+              <p>Other Details</p>
+
+              <p>
+                <BsCaretUpFill />
+              </p>
+            </div>
+          }
+        >
+          <Paper
+            sx={{
+              p: 2,
+              margin: "auto",
+              // maxWidth: 500,
+              flexGrow: 1,
+              backgroundColor: "#dddddd",
+            }}
+          >
+            <Grid container spacing={1}>
+              <Grid item xs={gridSize}>
+                {/* {val.ANSWERS} */}
+
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Invoice Type
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Invoice Type"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    CGST Amount
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["CGST Amount"]}
+                  </Typography>
+                </div>
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    SGST Amount
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["SGST Amount"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    IGST Amount
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["IGST Amount"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    PO Tax Code
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["PO Tax Code"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Fiscal Year
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Fiscal Year"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    TCS Amount
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["TCS Amount"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Digital Sign
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Digital Sign"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    IRN Number
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["IRN Number"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Invoice Category
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Invoice Category"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Section Code
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Section Code"]}
+                  </Typography>
+                </div>
+                <Divider />
+              </Grid>
+              <Grid item xs={gridSize}>
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Derived Payment Date
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Purchase Org"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Vendor Code
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Vendor Code"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Vendor GSTIN
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Vendor GSTIN"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Vendor Email
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Vendor Email"]}
+                  </Typography>
+                </div>
+                <Divider />
+
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Vendor Address
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Vendor Address"]}
+                  </Typography>
+                  <Divider />
+                </div>
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Invoice Sub-Category
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Invoice Sub-Category"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Invoice Classification
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Invoice Classification"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Process
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Process"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    PO Type
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["PO Type"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Invoice Source
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Invoice Source"]}
+                  </Typography>
+                </div>
+                <Divider />
+                <div className="form-details">
+                  <Typography
+                    sx={{
+                      color: "#595959",
+                      fontWeight: 600,
+                      fontSize: 20,
+                      p: 1,
+                    }}
+                  >
+                    Business Place
+                  </Typography>
+                  <Typography className="typo-style">
+                    {props.INVOICE_DETAILS["Business Place"]},
+                    {props.INVOICE_DETAILS["Invoice Receipt Date"]}
+                  </Typography>
+                </div>
+                <Divider />
+              </Grid>
+            </Grid>
+          </Paper>
+          {/* 
+          <div className="hr" /> */}
+        </Collapsible>
+
+        <div className="button_div">
+          <div className="inner_div">
+            <button className="button">Aceept</button>
+            <button className="button">Hold</button>
+            <button className="button">Reject</button>
+            {/* <button className="button">Release Work Item</button> */}
+            {/* <button className="button">Save & Close</button> */}
+          </div>
         </div>
       </div>
-      </div>
-
     </>
   );
 }

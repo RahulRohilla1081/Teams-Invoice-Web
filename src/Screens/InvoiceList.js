@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
+import axios from "axios";
 import {
   AppBar,
   Box,
@@ -101,7 +102,7 @@ function InvoiceList() {
     //     Label: "Process"
     // },
     {
-        Label: "PO Number"
+      Label: "PO Number",
     },
     // {
     //     Label: "PO Type"
@@ -110,10 +111,10 @@ function InvoiceList() {
     //     Label: "Invoice Source"
     // },
     {
-        Label: "Invoice Receipt Date"
+      Label: "Invoice Receipt Date",
     },
     {
-        Label: "Urgent"
+      Label: "Urgent",
     },
     // {
     //     Label: "Business Place"
@@ -125,7 +126,7 @@ function InvoiceList() {
     //     Label: "Bill to Company GSTIN"
     // },
     {
-        Label: "Bill to Company Name"
+      Label: "Bill to Company Name",
     },
     // {
     //     Label: "Currency"
@@ -143,7 +144,7 @@ function InvoiceList() {
     //     Label: "Derived Payment Date"
     // },
     {
-        Label: "Vendor Name"
+      Label: "Vendor Name",
     },
     // {
     //     Label: "Vendor Code"
@@ -152,7 +153,7 @@ function InvoiceList() {
     //     Label: "Vendor GSTIN"
     // },
     {
-        Label: "MSME"
+      Label: "MSME",
     },
     // {
     //     Label: "Vendor Email"
@@ -182,7 +183,7 @@ function InvoiceList() {
       "TCS Amount": 0,
       "Digital Sign": "No",
       "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9aa8d5c625b9eb10be3529aa6760",
+        "79f3d3e9703303e7e7e9c2756",
       "Invoice Category": "Domestic",
       "Invoice Sub-Category": "Services",
       "Invoice Classification": "Others",
@@ -228,7 +229,7 @@ function InvoiceList() {
       "TCS Amount": 0,
       "Digital Sign": "No",
       "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9aa8d5c625b9eb10be3529aa6760",
+        "79f3d3e9703303e7e7e9c27567a3cc1",
       "Invoice Category": "Domestic",
       "Invoice Sub-Category": "Services",
       "Invoice Classification": "Others",
@@ -274,7 +275,7 @@ function InvoiceList() {
       "TCS Amount": 0,
       "Digital Sign": "No",
       "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9aa8d5c625b9eb10be3529aa6760",
+        "79f3d3e9703303e7e7e9c27567a3",
       "Invoice Category": "Domestic",
       "Invoice Sub-Category": "Services",
       "Invoice Classification": "Others",
@@ -320,7 +321,7 @@ function InvoiceList() {
       "TCS Amount": 0,
       "Digital Sign": "No",
       "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9aa8d5c625b9eb10be3529aa6760",
+        "79f3d3e9703303e7e7e9c27567a",
       "Invoice Category": "Domestic",
       "Invoice Sub-Category": "Services",
       "Invoice Classification": "Others",
@@ -366,7 +367,7 @@ function InvoiceList() {
       "TCS Amount": 0,
       "Digital Sign": "No",
       "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9aa8d5c625b9eb10be3529aa6760",
+        "79f3d3e9703303e7e7e9c27567a3c",
       "Invoice Category": "Domestic",
       "Invoice Sub-Category": "Services",
       "Invoice Classification": "Others",
@@ -412,7 +413,7 @@ function InvoiceList() {
       "TCS Amount": 0,
       "Digital Sign": "No",
       "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9aa8d5c625b9eb10be3529aa6760",
+        "79f3d3e9703303e7e7e9c27567a3c",
       "Invoice Category": "Domestic",
       "Invoice Sub-Category": "Services",
       "Invoice Classification": "Others",
@@ -458,7 +459,7 @@ function InvoiceList() {
       "TCS Amount": 0,
       "Digital Sign": "No",
       "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9aa8d5c625b9eb10be3529aa6760",
+        "79f3d3e9703303e7e7e9c27567a3",
       "Invoice Category": "Domestic",
       "Invoice Sub-Category": "Services",
       "Invoice Classification": "Others",
@@ -504,7 +505,7 @@ function InvoiceList() {
       "TCS Amount": 0,
       "Digital Sign": "No",
       "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9aa8d5c625b9eb10be3529aa6760",
+        "79f3d3e9703303e7e7e9c27567a3cc1",
       "Invoice Category": "Domestic",
       "Invoice Sub-Category": "Services",
       "Invoice Classification": "Others",
@@ -550,7 +551,7 @@ function InvoiceList() {
       "TCS Amount": 0,
       "Digital Sign": "No",
       "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9aa8d5c625b9eb10be3529aa6760",
+        "79f3d3e9703303e7e7e9c27567a3cc167",
       "Invoice Category": "Domestic",
       "Invoice Sub-Category": "Services",
       "Invoice Classification": "Others",
@@ -596,7 +597,7 @@ function InvoiceList() {
       "TCS Amount": 0,
       "Digital Sign": "No",
       "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9aa8d5c625b9eb10be3529aa6760",
+        "79f3d3e9703303e7e7e9c27567a3cc167e0f9",
       "Invoice Category": "Domestic",
       "Invoice Sub-Category": "Services",
       "Invoice Classification": "Others",
@@ -642,7 +643,7 @@ function InvoiceList() {
       "TCS Amount": 0,
       "Digital Sign": "No",
       "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9aa8d5c625b9eb10be3529aa6760",
+        "79f3d3e9703303e7e7e9c27567a3cc167",
       "Invoice Category": "Domestic",
       "Invoice Sub-Category": "Services",
       "Invoice Classification": "Others",
@@ -705,11 +706,6 @@ function InvoiceList() {
               {InvoiceColumn.map((row, rowIndex) => (
                 <tr key={rowIndex}>
                   <td
-                    sx={
-                      {
-                        // columnWidth:100,
-                      }
-                    }
                     key={rowIndex}
                     onClick={() => {
                       navigate("/invoice_details", {
@@ -744,7 +740,7 @@ function InvoiceList() {
                   {/* <td key={rowIndex}>{row["CGST Amount"]}</td>
                   <td key={rowIndex}>{row["SGST Amount"]}</td>
                   <td key={rowIndex}>{row["IGST Amount"]}</td> */}
-                                    {/* <td key={rowIndex}>{row["PO Tax Code"]}</td>
+                  {/* <td key={rowIndex}>{row["PO Tax Code"]}</td>
                                     <td key={rowIndex}>{row["Fiscal Year"]}</td>
                                     <td key={rowIndex}>{row["TCS Amount"]}</td>
                                     <td key={rowIndex}>{row["Digital Sign"]}</td>
@@ -753,25 +749,25 @@ function InvoiceList() {
                                     <td key={rowIndex}>{row["Invoice Sub-Category"]}</td>
                                     <td key={rowIndex}>{row["Invoice Classification"]}</td>
                                     <td key={rowIndex}>{row["Process"]}</td> */}
-                                    <td key={rowIndex}>{row["PO Number"]}</td>
-                                    {/* <td key={rowIndex}>{row["PO Type"]}</td>
+                  <td key={rowIndex}>{row["PO Number"]}</td>
+                  {/* <td key={rowIndex}>{row["PO Type"]}</td>
                                     <td key={rowIndex}>{row["Invoice Source"]}</td> */}
-                                    <td key={rowIndex}>{row["Invoice Receipt Date"]}</td>
-                                    <td key={rowIndex}>{row["Urgent"]}</td>
-                                    {/* <td key={rowIndex}>{row["Business Place"]}</td>
+                  <td key={rowIndex}>{row["Invoice Receipt Date"]}</td>
+                  <td key={rowIndex}>{row["Urgent"]}</td>
+                  {/* <td key={rowIndex}>{row["Business Place"]}</td>
                                     <td key={rowIndex}>{row["section Code"]}</td>
                                     <td key={rowIndex}>{row["Bill to Company GSTIN"]}</td> */}
-                                    <td key={rowIndex}>{row["Bill to Company Name"]}</td>
-                                    {/* <td key={rowIndex}>{row["Currency"]}</td>
+                  <td key={rowIndex}>{row["Bill to Company Name"]}</td>
+                  {/* <td key={rowIndex}>{row["Currency"]}</td>
                                     <td key={rowIndex}>{row["Initiator's Email Address"]}</td>
                                     <td key={rowIndex}>{row["Purchase Org"]}</td>
                                     <td key={rowIndex}>{row["Purchase Group"]}</td>
                                     <td key={rowIndex}>{row["Derived Payment Date"]}</td> */}
-                                    <td key={rowIndex}>{row["Vendor Name"]}</td>
-                                    {/* <td key={rowIndex}>{row["Vendor Code"]}</td> */}
-                                    {/* <td key={rowIndex}>{row["Vendor GSTIN"]}</td> */}
-                                    <td key={rowIndex}>{row["MSME"]}</td>
-                                    {/* <td key={rowIndex}>{row["Vendor Email"]}</td>
+                  <td key={rowIndex}>{row["Vendor Name"]}</td>
+                  {/* <td key={rowIndex}>{row["Vendor Code"]}</td> */}
+                  {/* <td key={rowIndex}>{row["Vendor GSTIN"]}</td> */}
+                  <td key={rowIndex}>{row["MSME"]}</td>
+                  {/* <td key={rowIndex}>{row["Vendor Email"]}</td>
                                     <td key={rowIndex}>{row["Vendor Address"]}</td> */}
                 </tr>
               ))}
