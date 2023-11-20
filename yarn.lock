@@ -1760,10 +1760,10 @@
     "semver" "^7.3.5"
     "tar" "^6.1.11"
 
-"@microsoft/teams-js@^2.16.0":
-  "integrity" "sha512-3X9y6iG9P2K/lmrdGaGH41O5cnEHJ6mU4Yl+B0ljwwzW4SBHpjyr66YS1WvC+WCvpaj3ghQfPgFRIE2qXFgWeA=="
-  "resolved" "https://registry.npmjs.org/@microsoft/teams-js/-/teams-js-2.16.0.tgz"
-  "version" "2.16.0"
+"@microsoft/teams-js@^2.17.0":
+  "integrity" "sha512-lqFs5nUO+C11hgDkrkbiuQJP8sdPQ8/VmM0iyf2LtPsDdWHTJRWYtRcsC81DEKpwsGb24hg8r4qcJUi5GLydSg=="
+  "resolved" "https://registry.npmjs.org/@microsoft/teams-js/-/teams-js-2.17.0.tgz"
+  "version" "2.17.0"
   dependencies:
     "debug" "^4.3.3"
 

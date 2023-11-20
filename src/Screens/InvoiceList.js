@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import axios from "axios";
 import {
@@ -30,9 +30,59 @@ import {
 import "./InvoiceList.css";
 import InvoiceDetails from "./InvoiceDetails";
 import { useNavigate } from "react-router-dom";
+import { app, authentication , initialize} from "@microsoft/teams-js";
+// import from "@microsoft/teams-js";
 
 function InvoiceList() {
   const navigate = useNavigate();
+
+   useEffect(() => {
+     // Initialize Microsoft Teams SDK
+    //  msTeams.initialize();
+    initialize();
+
+     authentication.getAuthToken({
+       successCallback: (token) => {
+         // Use the token to make a request to the Microsoft Graph API
+         fetch("https://graph.microsoft.com/v1.0/me", {
+           headers: {
+             Authorization: `Bearer ${token}`,
+           },
+         })
+           .then((response) => response.json())
+           .then((data) => {
+             // Access the user's email ID from the data
+             const userEmail = data.mail || data.userPrincipalName;
+             console.log("User Email:", userEmail);
+           })
+           .catch((error) => {
+             console.error("Error fetching user data:", error);
+           });
+       },
+       failureCallback: (error) => {
+         console.error("Error getting authentication token:", error);
+       },
+     });
+    // app.getContext().then((context) => {
+    //   // console.log("asdasdas",context);
+    //   /*...*/
+    // });
+      // msTeams.settings.registerOnSaveHandler((saveEvent) => {
+      //   msTeams.settings.setSettings({
+      //     contentUrl: window.location.origin,
+      //     entityId: window.location.origin,
+      //   });
+
+      //   saveEvent.notifySuccess();
+      // });
+      // msTeams.settings.setValidityState(true);
+
+     // Add event listeners or perform other setup tasks
+
+     return () => {
+       // Clean up tasks if component unmounts
+     };
+   }, []);
 
   const InvoiceHeader = [
     {
