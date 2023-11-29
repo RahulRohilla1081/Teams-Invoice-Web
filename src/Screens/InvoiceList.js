@@ -30,59 +30,58 @@ import {
 import "./InvoiceList.css";
 import InvoiceDetails from "./InvoiceDetails";
 import { useNavigate } from "react-router-dom";
-import { app, authentication , initialize} from "@microsoft/teams-js";
+import { app, authentication, initialize } from "@microsoft/teams-js";
 // import from "@microsoft/teams-js";
 
 function InvoiceList() {
   const navigate = useNavigate();
 
-   useEffect(() => {
-     // Initialize Microsoft Teams SDK
-    //  msTeams.initialize();
-    initialize();
+  // useEffect(() => {
+  //   // Initialize Microsoft Teams SDK
+  //   //  msTeams.initialize();
+  //   initialize();
 
-     authentication.getAuthToken({
-       successCallback: (token) => {
-         // Use the token to make a request to the Microsoft Graph API
-         fetch("https://graph.microsoft.com/v1.0/me", {
-           headers: {
-             Authorization: `Bearer ${token}`,
-           },
-         })
-           .then((response) => response.json())
-           .then((data) => {
-             // Access the user's email ID from the data
-             const userEmail = data.mail || data.userPrincipalName;
-             console.log("User Email:", userEmail);
-           })
-           .catch((error) => {
-             console.error("Error fetching user data:", error);
-           });
-       },
-       failureCallback: (error) => {
-         console.error("Error getting authentication token:", error);
-       },
-     });
-    // app.getContext().then((context) => {
-    //   // console.log("asdasdas",context);
-    //   /*...*/
-    // });
-      // msTeams.settings.registerOnSaveHandler((saveEvent) => {
-      //   msTeams.settings.setSettings({
-      //     contentUrl: window.location.origin,
-      //     entityId: window.location.origin,
-      //   });
+  //   authentication.getAuthToken({
+  //     successCallback: (token) => {
+  //       // Use the token to make a request to the Microsoft Graph API
+  //       fetch("https://graph.microsoft.com/v1.0/me", {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       })
+  //         .then((response) => response.json())
+  //         .then((data) => {
+  //           // Access the user's email ID from the data
+  //           const userEmail = data.mail || data.userPrincipalName;
+  //           console.log("User Email:", userEmail);
+  //         })
+  //         .catch((error) => {
+  //           console.error("Error fetching user data:", error);
+  //         });
+  //     },
+  //     failureCallback: (error) => {
+  //       console.error("Error getting authentication token:", error);
+  //     },
+  //   });
 
-      //   saveEvent.notifySuccess();
-      // });
-      // msTeams.settings.setValidityState(true);
+  //   return () => {};
+  // }, []);
 
-     // Add event listeners or perform other setup tasks
 
-     return () => {
-       // Clean up tasks if component unmounts
-     };
-   }, []);
+
+  const [tbody, settbody] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://timesheet.samishti.com:7001/apis/sampleDataKRC")
+      .then((res) => {
+        console.log("My Data:", res.data);
+        settbody(res.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   const InvoiceHeader = [
     {
@@ -213,514 +212,6 @@ function InvoiceList() {
     // }
   ];
 
-  const InvoiceColumn = [
-    {
-      "Case ID": "Case ID 1",
-      "Invoice Type": "PO 1",
-      "Business Line": "Commercial",
-      "Company Code": "3150",
-      Plant: "A270",
-      Location: "Pune",
-      Department: "IT-Infrastructure",
-      "Invoice Number": "INV/2/2023",
-      "Invoice Date": "5/3/2023",
-      "Invoice Amount(inclusive of tax)": 295,
-      "CGST Amount": 225,
-      "SGST Amount": 225,
-      "IGST Amount": 0,
-      "PO Tax Code": "Payment Term Z045",
-      "Fiscal Year": 2023,
-      "TCS Amount": 0,
-      "Digital Sign": "No",
-      "IRN Number":
-        "79f3d3e9703303e7e7e9c2756",
-      "Invoice Category": "Domestic",
-      "Invoice Sub-Category": "Services",
-      "Invoice Classification": "Others",
-      Process: "Goods Services+Delivery Cost",
-      "PO Number": "4800167060",
-      "PO Type": "SB",
-      "Invoice Source": "Physical",
-      "Invoice Receipt Date": "5/17/2023",
-      Urgent: "Yes",
-      "Business Place": "",
-      "Section Code": 3151,
-      "Bill to Company GSTIN": "27AABCF1169K1ZJ",
-      "Bill to Company Name": "Asterope Properties Private Limited",
-      Currency: "INR",
-      "Initiator's Email Address": "nmane@kraheja.com",
-      "Purchase Org": "RPU1",
-      "Purchase Group": "P24",
-      "Derived Payment Date": "NA",
-      "Vendor Name": "ONEOTT INTERTAINMENT LTD",
-      "Vendor Code": "127232",
-      "Vendor GSTIN": "27AADCP6815A2ZO",
-      MSME: "MH18F0034092",
-      "Vendor Email": "akshay.lasure@onebroadband.in",
-      "Vendor Address":
-        "M/S.,ONEOTT,49/50, IN CENTRE,12TH ROAD MIDC,,ANDHERI (E),Mumbai,Maharashtra,IN,400093",
-    },
-    {
-      "Case ID": "Case ID 2",
-      "Invoice Type": "PO 2",
-      "Business Line": "Commercial",
-      "Company Code": "3150",
-      Plant: "A270",
-      Location: "Pune",
-      Department: "IT-Infrastructure",
-      "Invoice Number": "INV/2/2023",
-      "Invoice Date": "5/3/2023",
-      "Invoice Amount(inclusive of tax)": 295,
-      "CGST Amount": 225,
-      "SGST Amount": 225,
-      "IGST Amount": 0,
-      "PO Tax Code": "Payment Term Z045",
-      "Fiscal Year": 2023,
-      "TCS Amount": 0,
-      "Digital Sign": "No",
-      "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc1",
-      "Invoice Category": "Domestic",
-      "Invoice Sub-Category": "Services",
-      "Invoice Classification": "Others",
-      Process: "Goods Services+Delivery Cost",
-      "PO Number": "4800167060",
-      "PO Type": "SB",
-      "Invoice Source": "Physical",
-      "Invoice Receipt Date": "5/17/2023",
-      Urgent: "Yes",
-      "Business Place": "",
-      "Section Code": 3151,
-      "Bill to Company GSTIN": "27AABCF1169K1ZJ",
-      "Bill to Company Name": "Asterope Properties Private Limited",
-      Currency: "INR",
-      "Initiator's Email Address": "nmane@kraheja.com",
-      "Purchase Org": "RPU1",
-      "Purchase Group": "P24",
-      "Derived Payment Date": "",
-      "Vendor Name": "ONEOTT INTERTAINMENT LTD",
-      "Vendor Code": "127232",
-      "Vendor GSTIN": "27AADCP6815A2ZO",
-      MSME: "MH18F0034092",
-      "Vendor Email": "akshay.lasure@onebroadband.in",
-      "Vendor Address":
-        "M/S.,ONEOTT,49/50, IN CENTRE,12TH ROAD MIDC,,ANDHERI (E),Mumbai,Maharashtra,IN,400093",
-    },
-    {
-      "Case ID": "Case ID 2",
-      "Invoice Type": "PO 2",
-      "Business Line": "Commercial",
-      "Company Code": "3150",
-      Plant: "A270",
-      Location: "Pune",
-      Department: "IT-Infrastructure",
-      "Invoice Number": "INV/2/2023",
-      "Invoice Date": "5/3/2023",
-      "Invoice Amount(inclusive of tax)": 295,
-      "CGST Amount": 225,
-      "SGST Amount": 225,
-      "IGST Amount": 0,
-      "PO Tax Code": "Payment Term Z045",
-      "Fiscal Year": 2023,
-      "TCS Amount": 0,
-      "Digital Sign": "No",
-      "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3",
-      "Invoice Category": "Domestic",
-      "Invoice Sub-Category": "Services",
-      "Invoice Classification": "Others",
-      Process: "Goods Services+Delivery Cost",
-      "PO Number": "4800167060",
-      "PO Type": "SB",
-      "Invoice Source": "Physical",
-      "Invoice Receipt Date": "5/17/2023",
-      Urgent: "Yes",
-      "Business Place": "",
-      "Section Code": 3151,
-      "Bill to Company GSTIN": "27AABCF1169K1ZJ",
-      "Bill to Company Name": "Asterope Properties Private Limited",
-      Currency: "INR",
-      "Initiator's Email Address": "nmane@kraheja.com",
-      "Purchase Org": "RPU1",
-      "Purchase Group": "P24",
-      "Derived Payment Date": "",
-      "Vendor Name": "ONEOTT INTERTAINMENT LTD",
-      "Vendor Code": "127232",
-      "Vendor GSTIN": "27AADCP6815A2ZO",
-      MSME: "MH18F0034092",
-      "Vendor Email": "akshay.lasure@onebroadband.in",
-      "Vendor Address":
-        "M/S.,ONEOTT,49/50, IN CENTRE,12TH ROAD MIDC,,ANDHERI (E),Mumbai,Maharashtra,IN,400093",
-    },
-    {
-      "Case ID": "Case ID 2",
-      "Invoice Type": "PO 2",
-      "Business Line": "Commercial",
-      "Company Code": "3150",
-      Plant: "A270",
-      Location: "Pune",
-      Department: "IT-Infrastructure",
-      "Invoice Number": "INV/2/2023",
-      "Invoice Date": "5/3/2023",
-      "Invoice Amount(inclusive of tax)": 295,
-      "CGST Amount": 225,
-      "SGST Amount": 225,
-      "IGST Amount": 0,
-      "PO Tax Code": "Payment Term Z045",
-      "Fiscal Year": 2023,
-      "TCS Amount": 0,
-      "Digital Sign": "No",
-      "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a",
-      "Invoice Category": "Domestic",
-      "Invoice Sub-Category": "Services",
-      "Invoice Classification": "Others",
-      Process: "Goods Services+Delivery Cost",
-      "PO Number": "4800167060",
-      "PO Type": "SB",
-      "Invoice Source": "Physical",
-      "Invoice Receipt Date": "5/17/2023",
-      Urgent: "Yes",
-      "Business Place": "",
-      "Section Code": 3151,
-      "Bill to Company GSTIN": "27AABCF1169K1ZJ",
-      "Bill to Company Name": "Asterope Properties Private Limited",
-      Currency: "INR",
-      "Initiator's Email Address": "nmane@kraheja.com",
-      "Purchase Org": "RPU1",
-      "Purchase Group": "P24",
-      "Derived Payment Date": "",
-      "Vendor Name": "ONEOTT INTERTAINMENT LTD",
-      "Vendor Code": "127232",
-      "Vendor GSTIN": "27AADCP6815A2ZO",
-      MSME: "MH18F0034092",
-      "Vendor Email": "akshay.lasure@onebroadband.in",
-      "Vendor Address":
-        "M/S.,ONEOTT,49/50, IN CENTRE,12TH ROAD MIDC,,ANDHERI (E),Mumbai,Maharashtra,IN,400093",
-    },
-    {
-      "Case ID": "Case ID 2",
-      "Invoice Type": "PO 2",
-      "Business Line": "Commercial",
-      "Company Code": "3150",
-      Plant: "A270",
-      Location: "Pune",
-      Department: "IT-Infrastructure",
-      "Invoice Number": "INV/2/2023",
-      "Invoice Date": "5/3/2023",
-      "Invoice Amount(inclusive of tax)": 295,
-      "CGST Amount": 225,
-      "SGST Amount": 225,
-      "IGST Amount": 0,
-      "PO Tax Code": "Payment Term Z045",
-      "Fiscal Year": 2023,
-      "TCS Amount": 0,
-      "Digital Sign": "No",
-      "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3c",
-      "Invoice Category": "Domestic",
-      "Invoice Sub-Category": "Services",
-      "Invoice Classification": "Others",
-      Process: "Goods Services+Delivery Cost",
-      "PO Number": "4800167060",
-      "PO Type": "SB",
-      "Invoice Source": "Physical",
-      "Invoice Receipt Date": "5/17/2023",
-      Urgent: "Yes",
-      "Business Place": "",
-      "Section Code": 3151,
-      "Bill to Company GSTIN": "27AABCF1169K1ZJ",
-      "Bill to Company Name": "Asterope Properties Private Limited",
-      Currency: "INR",
-      "Initiator's Email Address": "nmane@kraheja.com",
-      "Purchase Org": "RPU1",
-      "Purchase Group": "P24",
-      "Derived Payment Date": "",
-      "Vendor Name": "ONEOTT INTERTAINMENT LTD",
-      "Vendor Code": "127232",
-      "Vendor GSTIN": "27AADCP6815A2ZO",
-      MSME: "MH18F0034092",
-      "Vendor Email": "akshay.lasure@onebroadband.in",
-      "Vendor Address":
-        "M/S.,ONEOTT,49/50, IN CENTRE,12TH ROAD MIDC,,ANDHERI (E),Mumbai,Maharashtra,IN,400093",
-    },
-    {
-      "Case ID": "Case ID 2",
-      "Invoice Type": "PO 2",
-      "Business Line": "Commercial",
-      "Company Code": "3150",
-      Plant: "A270",
-      Location: "Pune",
-      Department: "IT-Infrastructure",
-      "Invoice Number": "INV/2/2023",
-      "Invoice Date": "5/3/2023",
-      "Invoice Amount(inclusive of tax)": 295,
-      "CGST Amount": 225,
-      "SGST Amount": 225,
-      "IGST Amount": 0,
-      "PO Tax Code": "Payment Term Z045",
-      "Fiscal Year": 2023,
-      "TCS Amount": 0,
-      "Digital Sign": "No",
-      "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3c",
-      "Invoice Category": "Domestic",
-      "Invoice Sub-Category": "Services",
-      "Invoice Classification": "Others",
-      Process: "Goods Services+Delivery Cost",
-      "PO Number": "4800167060",
-      "PO Type": "SB",
-      "Invoice Source": "Physical",
-      "Invoice Receipt Date": "5/17/2023",
-      Urgent: "Yes",
-      "Business Place": "",
-      "Section Code": 3151,
-      "Bill to Company GSTIN": "27AABCF1169K1ZJ",
-      "Bill to Company Name": "Asterope Properties Private Limited",
-      Currency: "INR",
-      "Initiator's Email Address": "nmane@kraheja.com",
-      "Purchase Org": "RPU1",
-      "Purchase Group": "P24",
-      "Derived Payment Date": "",
-      "Vendor Name": "ONEOTT INTERTAINMENT LTD",
-      "Vendor Code": "127232",
-      "Vendor GSTIN": "27AADCP6815A2ZO",
-      MSME: "MH18F0034092",
-      "Vendor Email": "akshay.lasure@onebroadband.in",
-      "Vendor Address":
-        "M/S.,ONEOTT,49/50, IN CENTRE,12TH ROAD MIDC,,ANDHERI (E),Mumbai,Maharashtra,IN,400093",
-    },
-    {
-      "Case ID": "Case ID 2",
-      "Invoice Type": "PO 2",
-      "Business Line": "Commercial",
-      "Company Code": "3150",
-      Plant: "A270",
-      Location: "Pune",
-      Department: "IT-Infrastructure",
-      "Invoice Number": "INV/2/2023",
-      "Invoice Date": "5/3/2023",
-      "Invoice Amount(inclusive of tax)": 295,
-      "CGST Amount": 225,
-      "SGST Amount": 225,
-      "IGST Amount": 0,
-      "PO Tax Code": "Payment Term Z045",
-      "Fiscal Year": 2023,
-      "TCS Amount": 0,
-      "Digital Sign": "No",
-      "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3",
-      "Invoice Category": "Domestic",
-      "Invoice Sub-Category": "Services",
-      "Invoice Classification": "Others",
-      Process: "Goods Services+Delivery Cost",
-      "PO Number": "4800167060",
-      "PO Type": "SB",
-      "Invoice Source": "Physical",
-      "Invoice Receipt Date": "5/17/2023",
-      Urgent: "Yes",
-      "Business Place": "",
-      "Section Code": 3151,
-      "Bill to Company GSTIN": "27AABCF1169K1ZJ",
-      "Bill to Company Name": "Asterope Properties Private Limited",
-      Currency: "INR",
-      "Initiator's Email Address": "nmane@kraheja.com",
-      "Purchase Org": "RPU1",
-      "Purchase Group": "P24",
-      "Derived Payment Date": "",
-      "Vendor Name": "ONEOTT INTERTAINMENT LTD",
-      "Vendor Code": "127232",
-      "Vendor GSTIN": "27AADCP6815A2ZO",
-      MSME: "MH18F0034092",
-      "Vendor Email": "akshay.lasure@onebroadband.in",
-      "Vendor Address":
-        "M/S.,ONEOTT,49/50, IN CENTRE,,12TH ROAD MIDC,ANDHERI (E),Mumbai,Maharashtra,IN,400093",
-    },
-    {
-      "Case ID": "Case ID 2",
-      "Invoice Type": "PO 2",
-      "Business Line": "Commercial",
-      "Company Code": "3150",
-      Plant: "A270",
-      Location: "Pune",
-      Department: "IT-Infrastructure",
-      "Invoice Number": "INV/2/2023",
-      "Invoice Date": "5/3/2023",
-      "Invoice Amount(inclusive of tax)": 295,
-      "CGST Amount": 225,
-      "SGST Amount": 225,
-      "IGST Amount": 0,
-      "PO Tax Code": "Payment Term Z045",
-      "Fiscal Year": 2023,
-      "TCS Amount": 0,
-      "Digital Sign": "No",
-      "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc1",
-      "Invoice Category": "Domestic",
-      "Invoice Sub-Category": "Services",
-      "Invoice Classification": "Others",
-      Process: "Goods Services+Delivery Cost",
-      "PO Number": "4800167060",
-      "PO Type": "SB",
-      "Invoice Source": "Physical",
-      "Invoice Receipt Date": "5/17/2023",
-      Urgent: "Yes",
-      "Business Place": "",
-      "Section Code": 3151,
-      "Bill to Company GSTIN": "27AABCF1169K1ZJ",
-      "Bill to Company Name": "Asterope Properties Private Limited",
-      Currency: "INR",
-      "Initiator's Email Address": "nmane@kraheja.com",
-      "Purchase Org": "RPU1",
-      "Purchase Group": "P24",
-      "Derived Payment Date": "",
-      "Vendor Name": "ONEOTT INTERTAINMENT LTD",
-      "Vendor Code": "127232",
-      "Vendor GSTIN": "27AADCP6815A2ZO",
-      MSME: "MH18F0034092",
-      "Vendor Email": "akshay.lasure@onebroadband.in",
-      "Vendor Address":
-        "M/S.,ONEOTT,49/50, IN CENTRE,,12TH ROAD MIDC,ANDHERI (E),Mumbai,Maharashtra,IN,400093",
-    },
-    {
-      "Case ID": "Case ID 2",
-      "Invoice Type": "PO 2",
-      "Business Line": "Commercial",
-      "Company Code": "3150",
-      Plant: "A270",
-      Location: "Pune",
-      Department: "IT-Infrastructure",
-      "Invoice Number": "INV/2/2023",
-      "Invoice Date": "5/3/2023",
-      "Invoice Amount(inclusive of tax)": 295,
-      "CGST Amount": 225,
-      "SGST Amount": 225,
-      "IGST Amount": 0,
-      "PO Tax Code": "Payment Term Z045",
-      "Fiscal Year": 2023,
-      "TCS Amount": 0,
-      "Digital Sign": "No",
-      "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167",
-      "Invoice Category": "Domestic",
-      "Invoice Sub-Category": "Services",
-      "Invoice Classification": "Others",
-      Process: "Goods Services+Delivery Cost",
-      "PO Number": "4800167060",
-      "PO Type": "SB",
-      "Invoice Source": "Physical",
-      "Invoice Receipt Date": "5/17/2023",
-      Urgent: "Yes",
-      "Business Place": "",
-      "Section Code": 3151,
-      "Bill to Company GSTIN": "27AABCF1169K1ZJ",
-      "Bill to Company Name": "Asterope Properties Private Limited",
-      Currency: "INR",
-      "Initiator's Email Address": "nmane@kraheja.com",
-      "Purchase Org": "RPU1",
-      "Purchase Group": "P24",
-      "Derived Payment Date": "",
-      "Vendor Name": "ONEOTT INTERTAINMENT LTD",
-      "Vendor Code": "127232",
-      "Vendor GSTIN": "27AADCP6815A2ZO",
-      MSME: "MH18F0034092",
-      "Vendor Email": "akshay.lasure@onebroadband.in",
-      "Vendor Address":
-        "M/S.,ONEOTT,49/50, IN CENTRE,12TH ROAD MIDC,,ANDHERI (E),Mumbai,Maharashtra,IN,400093",
-    },
-    {
-      "Case ID": "Case ID 2",
-      "Invoice Type": "PO 2",
-      "Business Line": "Commercial",
-      "Company Code": "3150",
-      Plant: "A270",
-      Location: "Pune",
-      Department: "IT-Infrastructure",
-      "Invoice Number": "INV/2/2023",
-      "Invoice Date": "5/3/2023",
-      "Invoice Amount(inclusive of tax)": 295,
-      "CGST Amount": 225,
-      "SGST Amount": 225,
-      "IGST Amount": 0,
-      "PO Tax Code": "Payment Term Z045",
-      "Fiscal Year": 2023,
-      "TCS Amount": 0,
-      "Digital Sign": "No",
-      "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167e0f9",
-      "Invoice Category": "Domestic",
-      "Invoice Sub-Category": "Services",
-      "Invoice Classification": "Others",
-      Process: "Goods Services+Delivery Cost",
-      "PO Number": "4800167060",
-      "PO Type": "SB",
-      "Invoice Source": "Physical",
-      "Invoice Receipt Date": "5/17/2023",
-      Urgent: "Yes",
-      "Business Place": "",
-      "Section Code": 3151,
-      "Bill to Company GSTIN": "27AABCF1169K1ZJ",
-      "Bill to Company Name": "Asterope Properties Private Limited",
-      Currency: "INR",
-      "Initiator's Email Address": "nmane@kraheja.com",
-      "Purchase Org": "RPU1",
-      "Purchase Group": "P24",
-      "Derived Payment Date": "",
-      "Vendor Name": "ONEOTT INTERTAINMENT LTD",
-      "Vendor Code": "127232",
-      "Vendor GSTIN": "27AADCP6815A2ZO",
-      MSME: "MH18F0034092",
-      "Vendor Email": "akshay.lasure@onebroadband.in",
-      "Vendor Address":
-        "M/S.,ONEOTT,49/50, IN CENTRE,12TH ROAD MIDC,,ANDHERI (E),Mumbai,Maharashtra,IN,400093",
-    },
-    {
-      "Case ID": "Case ID 2",
-      "Invoice Type": "PO 2",
-      "Business Line": "Commercial",
-      "Company Code": "3150",
-      Plant: "A270",
-      Location: "Pune",
-      Department: "IT-Infrastructure",
-      "Invoice Number": "INV/2/2023",
-      "Invoice Date": "5/3/2023",
-      "Invoice Amount(inclusive of tax)": 295,
-      "CGST Amount": 225,
-      "SGST Amount": 225,
-      "IGST Amount": 0,
-      "PO Tax Code": "Payment Term Z045",
-      "Fiscal Year": 2023,
-      "TCS Amount": 0,
-      "Digital Sign": "No",
-      "IRN Number":
-        "79f3d3e9703303e7e7e9c27567a3cc167",
-      "Invoice Category": "Domestic",
-      "Invoice Sub-Category": "Services",
-      "Invoice Classification": "Others",
-      Process: "Goods Services+Delivery Cost",
-      "PO Number": "4800167060",
-      "PO Type": "SB",
-      "Invoice Source": "Physical",
-      "Invoice Receipt Date": "5/17/2023",
-      Urgent: "Yes",
-      "Business Place": "",
-      "Section Code": 3151,
-      "Bill to Company GSTIN": "27AABCF1169K1ZJ",
-      "Bill to Company Name": "Asterope Properties Private Limited",
-      Currency: "INR",
-      "Initiator's Email Address": "nmane@kraheja.com",
-      "Purchase Org": "RPU1",
-      "Purchase Group": "P24",
-      "Derived Payment Date": "",
-      "Vendor Name": "ONEOTT INTERTAINMENT LTD",
-      "Vendor Code": "127232",
-      "Vendor GSTIN": "27AADCP6815A2ZO",
-      MSME: "MH18F0034092",
-      "Vendor Email": "akshay.lasure@onebroadband.in",
-      "Vendor Address":
-        "M/S.,ONEOTT,49/50, IN CENTRE,,12TH ROAD MIDC,ANDHERI (E),Mumbai,Maharashtra,IN,400093",
-    },
-  ];
 
   return (
     <>
@@ -753,14 +244,14 @@ function InvoiceList() {
             </TableHead>
 
             <TableBody>
-              {InvoiceColumn.map((row, rowIndex) => (
-                <tr key={rowIndex}>
+            {tbody.map((val, index) => (
+                <tr key={index}>
                   <td
-                    key={rowIndex}
+                    key={index}
                     onClick={() => {
                       navigate("/invoice_details", {
                         state: {
-                          INVOICE_DATA: row,
+                          INVOICE_DATA: val,
                         },
                       });
                     }}
@@ -772,20 +263,32 @@ function InvoiceList() {
                         cursor: "pointer",
                       }}
                     >
-                      {row["Case ID"]}
+                      {val?.Invoice_Vendor_Details[0]?.CASE_ID}
                     </Typography>
                   </td>
 
                   {/* <td key={rowIndex}>{row["Invoice Type"]}</td> */}
-                  <td key={rowIndex}>{row["Business Line"]}</td>
-                  <td key={rowIndex}>{row["Company Code"]}</td>
-                  <td key={rowIndex}>{row["Plant"]}</td>
-                  <td key={rowIndex}>{row["Location"]}</td>
-                  <td key={rowIndex}>{row["Department"]}</td>
-                  <td key={rowIndex}>{row["Invoice Number"]}</td>
-                  <td key={rowIndex}>{row["Invoice Date"]}</td>
-                  <td key={rowIndex}>
-                    {row["Invoice Amount(inclusive of tax)"]}
+                  <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.BUSINESS_LINE}
+                  </td>
+                  <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.COMPANY_CODE}
+                  </td>
+                  <td key={index}>{val?.Invoice_Vendor_Details[0]?.PLANT}</td>
+                  <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.LOCATION}
+                  </td>
+                  <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.DEPARTMENT}
+                  </td>
+                  <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.INVOICE_NUMBER}
+                  </td>
+                  <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.INVOICE_DATE}
+                  </td>
+                  <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.INVOICE_AMOUNT}
                   </td>
                   {/* <td key={rowIndex}>{row["CGST Amount"]}</td>
                   <td key={rowIndex}>{row["SGST Amount"]}</td>
@@ -799,24 +302,34 @@ function InvoiceList() {
                                     <td key={rowIndex}>{row["Invoice Sub-Category"]}</td>
                                     <td key={rowIndex}>{row["Invoice Classification"]}</td>
                                     <td key={rowIndex}>{row["Process"]}</td> */}
-                  <td key={rowIndex}>{row["PO Number"]}</td>
+                  <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.PO_NUMBER}
+                  </td>
                   {/* <td key={rowIndex}>{row["PO Type"]}</td>
                                     <td key={rowIndex}>{row["Invoice Source"]}</td> */}
-                  <td key={rowIndex}>{row["Invoice Receipt Date"]}</td>
-                  <td key={rowIndex}>{row["Urgent"]}</td>
+                  <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.INVOICE_RECEVIED_DATE}
+                  </td>
+                  <td key={index}>{val?.Invoice_Vendor_Details[0]?.URGENCY}</td>
                   {/* <td key={rowIndex}>{row["Business Place"]}</td>
                                     <td key={rowIndex}>{row["section Code"]}</td>
                                     <td key={rowIndex}>{row["Bill to Company GSTIN"]}</td> */}
-                  <td key={rowIndex}>{row["Bill to Company Name"]}</td>
+                    <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.COMPANY_NAME}
+                  </td>
                   {/* <td key={rowIndex}>{row["Currency"]}</td>
                                     <td key={rowIndex}>{row["Initiator's Email Address"]}</td>
                                     <td key={rowIndex}>{row["Purchase Org"]}</td>
                                     <td key={rowIndex}>{row["Purchase Group"]}</td>
                                     <td key={rowIndex}>{row["Derived Payment Date"]}</td> */}
-                  <td key={rowIndex}>{row["Vendor Name"]}</td>
+                   <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.VENDOR_NAME}
+                  </td>
                   {/* <td key={rowIndex}>{row["Vendor Code"]}</td> */}
                   {/* <td key={rowIndex}>{row["Vendor GSTIN"]}</td> */}
-                  <td key={rowIndex}>{row["MSME"]}</td>
+                  <td key={index}>
+                    {val?.Invoice_Vendor_Details[0]?.MSME_STATUS}
+                  </td>
                   {/* <td key={rowIndex}>{row["Vendor Email"]}</td>
                                     <td key={rowIndex}>{row["Vendor Address"]}</td> */}
                 </tr>

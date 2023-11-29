@@ -5,10 +5,6 @@ import Invoice from './Screens/InvoiceList'
 import InvoiceDetails from './Screens/InvoiceDetails';
 import InvoiceList from './Screens/InvoiceList';
 import BasicModal from './Screens/BasicModal';
-// import CommentsTab from './Screens/CommentsTab';
-// import Modal from './Screens/Modal'
-
-
 
 function App() {
   return (

@@ -5,168 +5,141 @@ import SamplePDF from "../Images/sample.pdf";
 import Card from "@mui/material/Card";
 import "../Screens/AttachmentTab.css";
 import PDFViewer from "./PDFViewer";
+// const base64 = require('')/;
+// import {base64WithoutPrefix} from "base64topdf"
 
 // Import the styles
-import "@react-pdf-viewer/core/lib/styles/index.css";
+// import "@react-pdf-viewer/core/lib/styles/index.css";
 
-function AttachmentTab() {
+function AttachmentTab(props) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(0);
   const [showPDF, setShowPDF] = useState(false);
 
-  const FilesArr = [
-    { id:1,FILE_NAME:"PDF 1", URL:"http://10.5.51.41:9000/sample.pdf"},
-    { id:2,FILE_NAME:"PDF 2", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    // { id:3,FILE_NAME:"PDF 3", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    // { id:4,FILE_NAME:"PDF 4", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    // { id:5,FILE_NAME:"PDF 5", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    // { id:6,FILE_NAME:"PDF 6", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    // { id:7,FILE_NAME:"PDF 7", URL:"http://10.5.51.41:9000/sample2.pdf"},
-    // { id:8,FILE_NAME:"PDF 8", URL:"http://10.5.51.41:9000/sample2.pdf"},
-  ];
-  const [SelectedFileURL,setSelectedFileURL]=useState({})
+
+  const [pdfData,setpdfData]=useState({})
 
   useEffect(()=>{
 
-    setSelectedFileURL(FilesArr[0].URL)
-  },[])
+    setpdfData(props.INVOICE_DETAILS.InvoiceDoc_Base64)
+     console.log("ijfidfifdihihrif", props.INVOICE_DETAILS.InvoiceDoc_Base64);
+
+  },[props.INVOICE_DETAILS]
+  )
+
+
+  console.log("ksdgfdsgfugds", props);
+
+  const FilesArr = [
+    { id: 1, FILE_NAME: "PDF 1", URL: "http://10.5.51.41:9000/sample.pdf" },
+    { id: 2, FILE_NAME: "PDF 2", URL: "http://10.5.51.41:9000/sample2.pdf" },
+  ];
+  const [SelectedFileURL, setSelectedFileURL] = useState({});
+
+  useEffect(() => {
+    setSelectedFileURL(FilesArr[0].URL);
+  }, []);
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
 
+  // const base64toBlob = (pdfData) => {
+  //   // Cut the prefix `data:application/pdf;base64` from the raw base 64
+  //   const base64WithoutPrefix = pdfData.substr(
+  //     "data:application/pdf;base64,".length
+  //   );
+
+  //   const bytes = atob(base64WithoutPrefix);
+  //   let length = bytes.length;
+  //   let out = new Uint8Array(length);
+
+  //   while (length--) {
+  //     out[length] = bytes.charCodeAt(length);
+  //   }
+
+  //   return new Blob([out], { type: "application/pdf" });
+  // };
+
+  // const blob = base64toBlob(props.INVOICE_DETAILS.InvoiceDoc_Base64);
+  // const url = URL.createObjectURL(blob);
+
   return (
     <>
       <div
-        style={{
-          // display: "flex",
-          // justifyContent: "space-between",
-          // height:"10vh",
-        }}
+        style={
+          {
+            // display: "flex",
+            // justifyContent: "space-between",
+            // height:"10vh",
+          }
+        }
         className="attach-main-container"
       >
-        <div className="card-class"
+        <div
+          className="card-class"
           style={{
-            // width: "10%",
             cursor: "pointer",
           }}
         >
-
-
           <div className="scrollmenu">
-
-          {FilesArr.map((val) => (
-            <div
-              key={val.id}
-              style={{
-                // display:"flex",
-                margin: 10,
-                padding: 10,
-                // height:"5vh",
-                // justifyContent:"center",
-                // verticalAlign:"center",
-                // alignItems:"center",
-                backgroundColor:SelectedFileURL==val.URL? "#4775ce":null
-              }}
-              className="scrollmenu-item"
-              onClick={()=>{
-                setSelectedFileURL(val.URL)
-              }}
-            >
-              <p 
-              style={{
-                color:SelectedFileURL==val.URL? "white":"black",
-              }}>
-                {val.FILE_NAME}
-              </p>
-            </div>
-          ))}
+            {FilesArr.map((val) => (
+              <div
+                key={val.id}
+                style={{
+                  margin: 10,
+                  padding: 10,
+                  backgroundColor:
+                    SelectedFileURL == val.URL ? "#4775ce" : null,
+                }}
+                className="scrollmenu-item"
+                onClick={() => {
+                  setSelectedFileURL(val.URL);
+                }}
+              >
+                <p
+                  style={{
+                    color: SelectedFileURL == val.URL ? "white" : "black",
+                  }}
+                >
+                  {val.FILE_NAME}
+                </p>
+              </div>
+            ))}
           </div>
-
         </div>
-        <div style={{
-          width:"100%"
-        }}>
-      {/* {showPDF ? (
-<PDFViewer />
-      ) : (
-<button onClick={() => setShowPDF(true)}></button> 
-      )} */}
-      
-        {/* <embed
-          src={SelectedFileURL}
-          width="100%"
-          height="550"
+        <div
+          style={{
+            width: "100%",
+          }}
         >
-        </embed> */}
-
-<object data={SelectedFileURL} type="application/pdf" width="100%" height="550"></object>
-
-{/* <iframe src={SelectedFileURL} width="100%" height="550"/> */}
-
+          <object
+            data={SelectedFileURL}
+            type="application/pdf"
+            width="100%"
+            height="100%"
+          ></object>
+          <div
+    style={{
+        border: '1px solid rgba(0, 0, 0, 0.3)',
+        height: '100%',
+    }}
+>
+<iframe   style={{
+        width:'100%',
+        height: '100%',
+    }}
+  //  className={css.previewIframe}/
+   src={`data:application/pdf;base64,${
+    props.INVOICE_DETAILS.InvoiceDoc_Base64
+   }`}
+ />
+    {/* <Viewer fileUrl={url} /> */}
 </div>
-
-{/* 
-        <embed
-          src="http://10.5.51.41:9000/sample.pdf"
-          width="100%"
-          height="550"
-        >
-        </embed> */}
+        </div>
       </div>
     </>
   );
 }
 
 export default AttachmentTab;
-
-// import React, { useState } from "react";
-// import { Document, Page } from "react-pdf";
-// // import SamplePDF from "../Images/sample.pdf"
-// import { Viewer } from "@react-pdf-viewer/core";
-// import SamplePDF from "../Images/sample.pdf";
-// import Card from "@material-ui/Card";
-
-// // Import the styles
-// import "@react-pdf-viewer/core/lib/styles/index.css";
-
-// function AttachmentTab() {
-//   return <li>I am a {car.brand}</li>;
-//   const [numPages, setNumPages] = useState(null);
-//   const [pageNumber, setPageNumber] = useState(0);
-//   const cars = [
-//     { id: 1, brand: "Ford" },
-//     { id: 2, brand: "BMW" },
-//     { id: 3, brand: "Audi" },
-//   ];
-
-//   function onDocumentLoadSuccess(numPages) {
-//     setNumPages(numPages);
-//   }
-
-//   return (
-//     <>
-//       <div className="main-container">
-//         <h1>Who lives in my garage?</h1>
-//         <ul>
-//           {cars.map((car) => (
-//             <Card>
-//               <p>{car.brand}</p>
-//               <p>{car.id}</p>
-//             </Card>
-//             // <key={car.id} brand={car.brand} />
-//           ))}
-//         </ul>
-//         <div>
-//           <embed
-//             src="http://10.5.51.41:9000/sample.pdf"
-//             width="100%"
-//             height="550"
-//           ></embed>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default AttachmentTab;

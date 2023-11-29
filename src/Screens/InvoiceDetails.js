@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
-import '../Screens/InvoiceDetails.css'
+import "../Screens/InvoiceDetails.css";
 import {
   Grid,
   Paper,
@@ -23,7 +23,7 @@ import CaseRoutingTab from "./CaseRoutingTab";
 import IMAGES from "../Images/IMAGES";
 
 function InvoiceDetails() {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [value, setValue] = React.useState("1");
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -32,33 +32,31 @@ function InvoiceDetails() {
     {
       ADDED_BY: "Jack",
       Date: "19/10/2023",
-      COMMENTS:"This is Jacks comment"
+      COMMENTS: "This is Jacks comment",
     },
     {
       ADDED_BY: "Tony",
       Date: "19/10/2023",
-      COMMENTS:"This is Tony comment"
-
+      COMMENTS: "This is Tony comment",
     },
     {
       ADDED_BY: "John",
       Date: "19/10/2023",
-      COMMENTS:"This is John comment"
-
+      COMMENTS: "This is John comment",
     },
   ]);
   const handleChange = (event, newValue) => {
-    setValue(newValue);   
+    setValue(newValue);
   };
 
   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 400,
-    bgcolor: 'background.paper',
-    border: '0px solid #000',
+    bgcolor: "background.paper",
+    border: "0px solid #000",
     boxShadow: 24,
     p: 4,
   };
@@ -80,22 +78,23 @@ function InvoiceDetails() {
               alignItems: "center",
             }}
           >
-            <div style={{
-              display:"flex",
-              justifyContent:"center",
-              alignItems:"center",
-
-            }}> 
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <img
                 src={IMAGES.BackIcon}
                 style={{
                   width: 30,
                   height: 30,
-                  cursor:"pointer",
-                  marginRight:10
+                  cursor: "pointer",
+                  marginRight: 10,
                 }}
-                onClick={()=>{
-navigate("/");
+                onClick={() => {
+                  navigate("/");
                 }}
               />
 
@@ -215,11 +214,11 @@ navigate("/");
               />
             </TabPanel>
             <TabPanel value="2">
-              <AttachmentTab />
+              <AttachmentTab INVOICE_DETAILS={location.state.INVOICE_DATA}/>
             </TabPanel>
             {/* <TabPanel value="3"><CommentsTab/></TabPanel> */}
             <TabPanel value="4">
-              <CaseRoutingTab />
+              <CaseRoutingTab      INVOICE_DETAILS={location.state.INVOICE_DATA}/>
             </TabPanel>
           </TabContext>
         </div>
