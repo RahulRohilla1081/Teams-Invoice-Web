@@ -22,28 +22,14 @@ import CommentsTab from "./CommentsTab";
 import CaseRoutingTab from "./CaseRoutingTab";
 import IMAGES from "../Images/IMAGES";
 
-function InvoiceDetails() {
+function InvoiceDetails(props) {
   const navigate = useNavigate();
   const [value, setValue] = React.useState("1");
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [CommentsList, setCommentsList] = useState([
-    {
-      ADDED_BY: "Jack",
-      Date: "19/10/2023",
-      COMMENTS: "This is Jacks comment",
-    },
-    {
-      ADDED_BY: "Tony",
-      Date: "19/10/2023",
-      COMMENTS: "This is Tony comment",
-    },
-    {
-      ADDED_BY: "John",
-      Date: "19/10/2023",
-      COMMENTS: "This is John comment",
-    },
+  
   ]);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -65,6 +51,9 @@ function InvoiceDetails() {
 
   useEffect(() => {
     // console.log("location", location);
+    console.log("njsad",location.state.INVOICE_DATA.Comments
+    );
+    setCommentsList(location.state.INVOICE_DATA.Comments)
   }, []);
 
   return (
@@ -167,7 +156,7 @@ function InvoiceDetails() {
                             fontWeight: "bold",
                           }}
                         >
-                          {val.COMMENTS}
+                          {val.Comments}
                         </p>
                         <p
                           style={{
