@@ -18,7 +18,14 @@
 
 .card_para{
     display: flex; 
+    max-width: 260px; 
+    word-break: break-all;
+    overflow-wrap: break-word;
 }
+
+/* .inner_div{
+    word-break: break-all;
+} */
 
 /* .vertical-timeline-element--work .vertical-timeline-element-icon {
     border: 5px solid #FF0000; 

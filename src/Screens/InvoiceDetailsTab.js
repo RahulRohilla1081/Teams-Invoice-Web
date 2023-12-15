@@ -11,6 +11,7 @@ import Modal from "@mui/material/Modal";
 import Collapsible from "react-collapsible";
 import { BsCaretDown, BsCaretUpFill } from "react-icons/bs";
 import IMAGES from "../Images/IMAGES";
+import { IconContext } from "react-icons";
 
 function InvoiceDetailsTab(props) {
 
@@ -46,7 +47,7 @@ function InvoiceDetailsTab(props) {
             fontSize: 17,
             p: 1,
             color: "#fff",
-            backgroundColor: "#5a9cde",
+            backgroundColor: "#2d344b",
           }}
         >
           General
@@ -292,18 +293,36 @@ function InvoiceDetailsTab(props) {
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                padding: 5,
+                // padding: 2,
+                backgroundColor:"#2d344b",
+                alignItems:"center"
               }}
             >
           
-              <p>Invoice Details</p>
-              <p>
-                <BsCaretDown />
-              </p>
+              <p style={{
+               color:"#fff",
+               fontSize:20,
+               fontWeight:"bold" ,
+              //  padding: 2,
+              marginLeft:10
+               
+              }}>Invoice Details</p>
+
+<IconContext.Provider      value={{ color: 'white', size: '20px' }}
+    >   
+  <div style={{
+marginRight:10
+  }}>
+
+<BsCaretDown />
+</div>
+
+       </IconContext.Provider>
+            
             </Card>
           }
           triggerStyle={{
-            color: "#4562d7",
+            color: "#2d344b",
 
             marginLeft: 20,
             marginRight: 20,
@@ -315,14 +334,34 @@ function InvoiceDetailsTab(props) {
                 justifyContent: "space-between",
                 // marginLeft: 20,
                 // marginRight: 20,
-                padding: 10,
+                // padding: 10,
+                backgroundColor:"#2d344b",
+                alignItems:"center"
               }}
             >
-              <p>Other Details</p>
+              {/* <p>Other Details</p> */}
+              <p style={{
+               color:"#fff",
+               fontSize:20,
+               fontWeight:"bold" ,
+              //  padding: 2,
+              marginLeft:10,
+            
+               
+              }}>Invoice Details</p>
+<IconContext.Provider      value={{ color: 'white', size: '20px' }}
+    >   
+  <div style={{
+marginRight:10
+  }}>
 
-              <p>
-                <BsCaretUpFill />
-              </p>
+<BsCaretUpFill />
+</div>
+
+       </IconContext.Provider>
+              {/* <p>
+            
+              </p> */}
             </div>
           }
         >
@@ -702,7 +741,7 @@ function InvoiceDetailsTab(props) {
 
         <div className="button_div">
           <div className="inner_div">
-            <button className="button">Aceept</button>
+            <button className="button">Accept</button>
             <button className="button">Hold</button>
             <button className="button">Reject</button>
             {/* <button className="button">Release Work Item</button> */}

@@ -32,7 +32,7 @@ function AttachmentTab(props) {
 
   const FilesArr = [
     { id: 1, FILE_NAME: "PDF 1", URL: "http://10.5.51.41:9000/sample.pdf" },
-    { id: 2, FILE_NAME: "PDF 2", URL: "http://10.5.51.41:9000/sample2.pdf" },
+   
   ];
   const [SelectedFileURL, setSelectedFileURL] = useState({});
 
@@ -44,38 +44,9 @@ function AttachmentTab(props) {
     setNumPages(numPages);
   }
 
-  // const base64toBlob = (pdfData) => {
-  //   // Cut the prefix `data:application/pdf;base64` from the raw base 64
-  //   const base64WithoutPrefix = pdfData.substr(
-  //     "data:application/pdf;base64,".length
-  //   );
-
-  //   const bytes = atob(base64WithoutPrefix);
-  //   let length = bytes.length;
-  //   let out = new Uint8Array(length);
-
-  //   while (length--) {
-  //     out[length] = bytes.charCodeAt(length);
-  //   }
-
-  //   return new Blob([out], { type: "application/pdf" });
-  // };
-
-  // const blob = base64toBlob(props.INVOICE_DETAILS.InvoiceDoc_Base64);
-  // const url = URL.createObjectURL(blob);
-
   return (
     <>
-      <div
-        style={
-          {
-            // display: "flex",
-            // justifyContent: "space-between",
-            // height:"10vh",
-          }
-        }
-        className="attach-main-container"
-      >
+      <div className="attach-main-container">
         <div
           className="card-class"
           style={{
@@ -111,30 +82,28 @@ function AttachmentTab(props) {
         <div
           style={{
             width: "100%",
+            height:"100vh"
           }}
         >
-          <object
-            data={SelectedFileURL}
-            type="application/pdf"
-            width="100%"
-            height="100%"
-          ></object>
+     
           <div
     style={{
         border: '1px solid rgba(0, 0, 0, 0.3)',
-        height: '100%',
+        // height: '100%',
     }}
 >
 <iframe   style={{
         width:'100%',
-        height: '100%',
+        // height: '100%',
+        height:"100vh"
     }}
-  //  className={css.previewIframe}/
    src={`data:application/pdf;base64,${
     props.INVOICE_DETAILS.InvoiceDoc_Base64
    }`}
  />
-    {/* <Viewer fileUrl={url} /> */}
+
+
+
 </div>
         </div>
       </div>

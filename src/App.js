@@ -5,6 +5,7 @@ import Invoice from './Screens/InvoiceList'
 import InvoiceDetails from './Screens/InvoiceDetails';
 import InvoiceList from './Screens/InvoiceList';
 import BasicModal from './Screens/BasicModal';
+import Dashboard from './Screens/Dashboard'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path='/' element={<InvoiceList/>} />
         <Route path='/invoice_details' element={<InvoiceDetails />} />
         <Route path='/modal' element={<BasicModal />} />
+        <Route path='/dashboard' element={<Dashboard/>} />
         {/* <Route path='/modal' element={<Modal />} /> */}
       </Routes>
     </BrowserRouter>

@@ -41,10 +41,7 @@ function CaseRoutingTab(props) {
                         <div className='inner_div'>
                             <p className="vertical-timeline-element-title">Group</p>
                             {/* <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4> */}
-                            <p className='card_para' style={{
-                                maxWidth:100,
-                                wordWrap:"break-word"
-                            }}>
+                            <p className='card_para'>
                                 {val.groups}
                             </p>
                         </div>

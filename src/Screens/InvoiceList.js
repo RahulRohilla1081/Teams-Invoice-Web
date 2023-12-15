@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import axios from "axios";
+import Sheet from '@mui/joy/Sheet';
+import MenuIcon from '@mui/icons-material/Menu';
+import AdbIcon from '@mui/icons-material/Adb';
+import invoice from '../Images/invoice.png'
 import {
   AppBar,
-  Box,
   Toolbar,
   Tooltip,
   IconButton,
   Typography,
   Menu,
-  MenuIcon,
   Container,
   Avatar,
   Button,
-  MenuItem,
-  AdbIcon,
   Tab,
   Tabs,
   Table,
@@ -31,44 +31,11 @@ import "./InvoiceList.css";
 import InvoiceDetails from "./InvoiceDetails";
 import { useNavigate } from "react-router-dom";
 import { app, authentication, initialize } from "@microsoft/teams-js";
-// import from "@microsoft/teams-js";
+
 
 function InvoiceList() {
 
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   // Initialize Microsoft Teams SDK
-  //   //  msTeams.initialize();
-  //   initialize();
-
-  //   authentication.getAuthToken({
-  //     successCallback: (token) => {
-  //       // Use the token to make a request to the Microsoft Graph API
-  //       fetch("https://graph.microsoft.com/v1.0/me", {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       })
-  //         .then((response) => response.json())
-  //         .then((data) => {
-  //           // Access the user's email ID from the data
-  //           const userEmail = data.mail || data.userPrincipalName;
-  //           console.log("User Email:", userEmail);
-  //         })
-  //         .catch((error) => {
-  //           console.error("Error fetching user data:", error);
-  //         });
-  //     },
-  //     failureCallback: (error) => {
-  //       console.error("Error getting authentication token:", error);
-  //     },
-  //   });
-
-  //   return () => {};
-  // }, []);
-
-
 
   const [tbody, settbody] = useState([]);
 
@@ -218,15 +185,22 @@ function InvoiceList() {
     <>
       <div className="main-container">
         <div className="header-style">
-          <h2 className="main_heading">Invoices</h2>
-        </div>
+          <div className="image-heading">
+        <img style={{
+          width: "75px",
+          height: "70px",
+        }} className="header-style" src={invoice}></img>
+          <h2 className="invoices_heading">Invoices</h2>
+          </div>
+        </div>  
         <TableContainer
           component={Paper}
           sx={{
             maxHeight: 490,
           }}
         >
-          <Table className="table" aria-label="customized table" stickyHeader>
+          <Table 
+          className="table" aria-label="customized table" stickyHeader>
             <TableHead className="scroll-effect">
               <tr>
                 {InvoiceHeader.map((val, index) => {

@@ -70,7 +70,7 @@ th {
   /* padding-top: 12px;
   padding-bottom: 12px; */
   text-align: center;
-  background-color: #219de1;
+  background-color: #1C82AD;
   color: #fff;
   padding: 20px;
 
@@ -109,8 +109,17 @@ td {
   min-height: 100vh;
   padding: 8px;
   background-image: url("../Images/triangle-mosaic.png");
-  
-  
+}
+
+.image-heading{
+  display: flex;
+  align-items: center;
+}
+
+.invoices_heading{
+  background-image: url("../Images/triangle-mosaic.png");
+  font-size: 30px;
+ 
 }
 .header-style{
   /* background-image: url("../Images/background4.svg"); */
@@ -120,6 +129,9 @@ td {
 
 .main_heading{
   font-family: 'Times New Roman', Times, serif;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  color: #575757;
 }

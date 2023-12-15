@@ -34,7 +34,7 @@
 
 .button {
   background-color: #fff;
-  border: 1px solid #219de1;
+  border: 1px solid #2d344b;
   padding: 5px;
   position: relative;
   padding: 10px;
@@ -45,8 +45,9 @@
 }
 
 .button:hover {
-  background-color: #219de1;
+  background-color: #2d344b;
   color: white;
+  cursor: pointer;
 }
 
 .inner_div {
