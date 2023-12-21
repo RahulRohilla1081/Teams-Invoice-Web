@@ -28,11 +28,9 @@ function InvoiceDetails(props) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [CommentsList, setCommentsList] = useState([
-  
-  ]);
+  const [CommentsList, setCommentsList] = useState([]);
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setValue(newValue);  
   };
 
   const style = {
@@ -41,7 +39,7 @@ function InvoiceDetails(props) {
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 400,
-    bgcolor: "background.paper",
+    bgcolor: "#fff",
     border: "0px solid #000",
     boxShadow: 24,
     p: 4,
@@ -110,7 +108,7 @@ function InvoiceDetails(props) {
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
-              <Box sx={style}>
+              <Box className="comment-box-style">
                 <Typography id="modal-modal-title" variant="h6" component="h2">
                   Comments
                 </Typography>
@@ -177,7 +175,7 @@ function InvoiceDetails(props) {
                 })}
               </Box>
             </Modal>
-          </div>
+          </div>    
         </div>
         <div className="main-header">
           <TabContext value={value}>
@@ -207,7 +205,7 @@ function InvoiceDetails(props) {
             </TabPanel>
             {/* <TabPanel value="3"><CommentsTab/></TabPanel> */}
             <TabPanel value="4">
-              <CaseRoutingTab      INVOICE_DETAILS={location.state.INVOICE_DATA}/>
+              <CaseRoutingTab INVOICE_DETAILS={location.state.INVOICE_DATA}/>
             </TabPanel>
           </TabContext>
         </div>

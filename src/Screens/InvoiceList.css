@@ -19,29 +19,6 @@
 	padding:0;
 }
 
-/* 
-.button:hover {
-
-} */
-
-/* .button_div { */
-  /* height: 35px; */
-  /* display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  margin: 10px;
-  text-decoration: none;
-  border-radius: 6px;
-  flex-direction: row;
-} */
-
-/* .inner_div { */
-  /* justify-content: space-between; */
-  /* align-content: space-around; */
-  /* align-items: ; */
-  /* display: flex;
-} */
-
 
 tr {
   border: 1px solid #000;
@@ -113,14 +90,14 @@ td {
 
 .image-heading{
   display: flex;
-  align-items: center;
+  align-items: center;  
 }
 
 .invoices_heading{
   background-image: url("../Images/triangle-mosaic.png");
-  font-size: 30px;
- 
+ font-size: 30px; 
 }
+
 .header-style{
   /* background-image: url("../Images/background4.svg"); */
   padding: 10px;

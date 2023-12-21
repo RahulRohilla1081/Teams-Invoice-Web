@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Document, Page } from "react-pdf";
 import { Viewer } from "@react-pdf-viewer/core";
-import SamplePDF from "../Images/sample.pdf";
 import Card from "@mui/material/Card";
 import "../Screens/AttachmentTab.css";
 import PDFViewer from "./PDFViewer";

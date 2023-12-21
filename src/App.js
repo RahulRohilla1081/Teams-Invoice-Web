@@ -11,11 +11,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path='/' element={<InvoiceList/>} />
+      <Route path='/' element={<Dashboard/>} />
         <Route path='/invoice_details' element={<InvoiceDetails />} />
         <Route path='/modal' element={<BasicModal />} />
-        <Route path='/dashboard' element={<Dashboard/>} />
-        {/* <Route path='/modal' element={<Modal />} /> */}
       </Routes>
     </BrowserRouter>
   );

@@ -20,3 +20,21 @@
     background-image: url("../Images/triangle-mosaic.png");
 }
 
+.comment-box-style{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     width: 450px;
+     border: 0px solid #000;
+     box-shadow: 24;
+     background-color: #fff;
+     margin: 5px;
+     padding: 5px;
+}
+
+@media (max-width: 768px) {
+    .comment-box-style {
+        width: 350px; /* Adjust the width for smaller screens */
+    }
+}

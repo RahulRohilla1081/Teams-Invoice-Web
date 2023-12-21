@@ -1,41 +1,55 @@
-import { Card, Divider, Grid, Paper, TextField, Typography } from "@mui/material";
 import { React, useEffect, useState } from "react";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import { createTheme } from "@mui/material/styles";
-import { blue, yellow, red } from "@mui/material/colors";
-import Box from "@mui/material/Box";
-import "../Screens/InvoiceDetailsTab.css"
+import { Routes, Route, useNavigate } from "react-router-dom";
+import {
+  Card,
+  Divider,
+  Grid,
+  Paper,
+  TextField,
+  Typography,
+  Stack,
+  Button,
+  createTheme,
+  blue,
+  yellow,
+  red,
+  Box,
+  Modal,
+} from "@mui/material";
+import "../Screens/InvoiceDetailsTab.css";
 import BasicModal from "./BasicModal";
-import Modal from "@mui/material/Modal";
 import Collapsible from "react-collapsible";
 import { BsCaretDown, BsCaretUpFill } from "react-icons/bs";
 import IMAGES from "../Images/IMAGES";
 import { IconContext } from "react-icons";
+import Sheet from "@mui/joy/Sheet";
 
 function InvoiceDetailsTab(props) {
+  const isPC = window.innerWidth > 1024;
 
-  const isPC = window.innerWidth > 1024; // You can adjust the width threshold
-
-  // Determine the grid size
   const gridSize = isPC ? 6 : 12;
 
-
   console.log("jebdjdscjss", props.INVOICE_DETAILS);
+
+  const navigate = useNavigate();
+
+  const navigateToHome = () => {
+    navigate("/");
+  };
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [invoiceData, setInvoiceData] = useState({});
+  // const [show, setShow] = useState(false);
 
-  const [invoiceData,setInvoiceData]=useState({})
-
-  useEffect(()=>{
-
-    setInvoiceData(props.INVOICE_DETAILS.Invoice_Vendor_Details[0])
-     console.log("ehfhdvhvdhgc", props.INVOICE_DETAILS.Invoice_Vendor_Details[0]);
-
-  },[props.INVOICE_DETAILS]
-  )
+  useEffect(() => {
+    setInvoiceData(props.INVOICE_DETAILS.Invoice_Vendor_Details[0]);
+    console.log(
+      "ehfhdvhvdhgc",
+      props.INVOICE_DETAILS.Invoice_Vendor_Details[0]
+    );
+  }, [props.INVOICE_DETAILS]);
 
   return (
     <>
@@ -61,7 +75,7 @@ function InvoiceDetailsTab(props) {
                 Case ID
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.CASE_ID}
+                {invoiceData.CASE_ID}
               </Typography>
             </div>
             <Divider />
@@ -72,7 +86,7 @@ function InvoiceDetailsTab(props) {
                 Business Line
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.BUSINESS_LINE}
+                {invoiceData.BUSINESS_LINE}
               </Typography>
             </div>
             <Divider />
@@ -84,7 +98,7 @@ function InvoiceDetailsTab(props) {
               </Typography>
 
               <Typography className="typo-style">
-              {invoiceData.PLANT_CODE}
+                {invoiceData.PLANT_CODE}
               </Typography>
             </div>
             <Divider />
@@ -95,7 +109,7 @@ function InvoiceDetailsTab(props) {
                 Department
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.DEPARTMENT}
+                {invoiceData.DEPARTMENT}
               </Typography>
             </div>
             <Divider />
@@ -106,7 +120,7 @@ function InvoiceDetailsTab(props) {
                 Invoice Date
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.INVOICE_DATE}
+                {invoiceData.INVOICE_DATE}
               </Typography>
             </div>
             <Divider />
@@ -118,7 +132,7 @@ function InvoiceDetailsTab(props) {
                 PO Number
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.PO_NUMBER}
+                {invoiceData.PO_NUMBER}
               </Typography>
             </div>
             <Divider />
@@ -130,7 +144,7 @@ function InvoiceDetailsTab(props) {
                 Urgent
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.URGENCY}
+                {invoiceData.URGENCY}
               </Typography>
             </div>
             <Divider />
@@ -142,7 +156,7 @@ function InvoiceDetailsTab(props) {
                 Bill to Company Name
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.COMPANY_NAME}
+                {invoiceData.COMPANY_NAME}
               </Typography>
             </div>
             <Divider />
@@ -153,7 +167,7 @@ function InvoiceDetailsTab(props) {
                 Initiator's Email Address
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.KRC_EMAIL_ADDRESS}
+                {invoiceData.KRC_EMAIL_ADDRESS}
               </Typography>
             </div>
             <Divider />
@@ -164,10 +178,9 @@ function InvoiceDetailsTab(props) {
                 Purchase Group
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.PURCHASE_GRP}
+                {invoiceData.PURCHASE_GRP}
               </Typography>
             </div>
-          
           </Grid>
 
           <Grid item xs={gridSize}>
@@ -178,7 +191,7 @@ function InvoiceDetailsTab(props) {
                 Company Code
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.COMPANY_CODE}
+                {invoiceData.COMPANY_CODE}
               </Typography>
             </div>
             <Divider />
@@ -189,7 +202,7 @@ function InvoiceDetailsTab(props) {
                 Vendor Name
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.VENDOR_NAME}
+                {invoiceData.VENDOR_NAME}
               </Typography>
             </div>
             <Divider />
@@ -200,7 +213,7 @@ function InvoiceDetailsTab(props) {
                 Location
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.LOCATION}
+                {invoiceData.LOCATION}
               </Typography>
             </div>
             <Divider />
@@ -211,7 +224,7 @@ function InvoiceDetailsTab(props) {
                 Invoice Number
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.INVOICE_NUMBER}
+                {invoiceData.INVOICE_NUMBER}
               </Typography>
             </div>
             <Divider />
@@ -222,7 +235,7 @@ function InvoiceDetailsTab(props) {
                 Invoice Amount(inclusive of tax)
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.INVOICE_AMOUNT}
+                {invoiceData.INVOICE_AMOUNT}
               </Typography>
             </div>
             <Divider />
@@ -234,7 +247,7 @@ function InvoiceDetailsTab(props) {
                 Invoice Receipt Date
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.INVOICE_DATE}
+                {invoiceData.INVOICE_DATE}
               </Typography>
             </div>
             <Divider />
@@ -246,7 +259,7 @@ function InvoiceDetailsTab(props) {
                 Bill to Company GSTIN
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.COMPANY_GSTIN}
+                {invoiceData.COMPANY_GSTIN}
               </Typography>
             </div>
             <Divider />
@@ -257,7 +270,7 @@ function InvoiceDetailsTab(props) {
                 Currency
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.CURRENCY}
+                {invoiceData.CURRENCY}
               </Typography>
             </div>
             <Divider />
@@ -268,7 +281,7 @@ function InvoiceDetailsTab(props) {
                 Purchase Org
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.PURCHASE_ORG}
+                {invoiceData.PURCHASE_ORG}
               </Typography>
             </div>
             <Divider />
@@ -280,10 +293,9 @@ function InvoiceDetailsTab(props) {
                 MSME
               </Typography>
               <Typography className="typo-style">
-              {invoiceData.MSME_STATUS}
+                {invoiceData.MSME_STATUS}
               </Typography>
             </div>
-       
           </Grid>
         </Grid>
 
@@ -294,31 +306,31 @@ function InvoiceDetailsTab(props) {
                 display: "flex",
                 justifyContent: "space-between",
                 // padding: 2,
-                backgroundColor:"#2d344b",
-                alignItems:"center"
+                backgroundColor: "#2d344b",
+                alignItems: "center",
               }}
             >
-          
-              <p style={{
-               color:"#fff",
-               fontSize:20,
-               fontWeight:"bold" ,
-              //  padding: 2,
-              marginLeft:10
-               
-              }}>Invoice Details</p>
+              <p
+                style={{
+                  color: "#fff",
+                  fontSize: 20,
+                  fontWeight: "bold",
+                  //  padding: 2,
+                  marginLeft: 10,
+                }}
+              >
+                Invoice Details
+              </p>
 
-<IconContext.Provider      value={{ color: 'white', size: '20px' }}
-    >   
-  <div style={{
-marginRight:10
-  }}>
-
-<BsCaretDown />
-</div>
-
-       </IconContext.Provider>
-            
+              <IconContext.Provider value={{ color: "white", size: "20px" }}>
+                <div
+                  style={{
+                    marginRight: 10,
+                  }}
+                >
+                  <BsCaretDown />
+                </div>
+              </IconContext.Provider>
             </Card>
           }
           triggerStyle={{
@@ -335,30 +347,31 @@ marginRight:10
                 // marginLeft: 20,
                 // marginRight: 20,
                 // padding: 10,
-                backgroundColor:"#2d344b",
-                alignItems:"center"
+                backgroundColor: "#2d344b",
+                alignItems: "center",
               }}
             >
               {/* <p>Other Details</p> */}
-              <p style={{
-               color:"#fff",
-               fontSize:20,
-               fontWeight:"bold" ,
-              //  padding: 2,
-              marginLeft:10,
-            
-               
-              }}>Invoice Details</p>
-<IconContext.Provider      value={{ color: 'white', size: '20px' }}
-    >   
-  <div style={{
-marginRight:10
-  }}>
-
-<BsCaretUpFill />
-</div>
-
-       </IconContext.Provider>
+              <p
+                style={{
+                  color: "#fff",
+                  fontSize: 20,
+                  fontWeight: "bold",
+                  //  padding: 2,
+                  marginLeft: 10,
+                }}
+              >
+                Invoice Details
+              </p>
+              <IconContext.Provider value={{ color: "white", size: "20px" }}>
+                <div
+                  style={{
+                    marginRight: 10,
+                  }}
+                >
+                  <BsCaretUpFill />
+                </div>
+              </IconContext.Provider>
               {/* <p>
             
               </p> */}
@@ -390,7 +403,7 @@ marginRight:10
                     Invoice Type
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.INVOICE_TYPE}
+                    {invoiceData.INVOICE_TYPE}
                   </Typography>
                 </div>
                 <Divider />
@@ -406,7 +419,7 @@ marginRight:10
                     CGST Amount
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.CGST_AMOUNT}
+                    {invoiceData.CGST_AMOUNT}
                   </Typography>
                 </div>
                 <div className="form-details">
@@ -421,7 +434,7 @@ marginRight:10
                     SGST Amount
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.SGST_AMOUNT}
+                    {invoiceData.SGST_AMOUNT}
                   </Typography>
                 </div>
                 <Divider />
@@ -437,7 +450,7 @@ marginRight:10
                     IGST Amount
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.IGST_AMOUNT}
+                    {invoiceData.IGST_AMOUNT}
                   </Typography>
                 </div>
                 <Divider />
@@ -453,7 +466,7 @@ marginRight:10
                     PO Tax Code
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.PO_TAX_CODE}
+                    {invoiceData.PO_TAX_CODE}
                   </Typography>
                 </div>
                 <Divider />
@@ -469,7 +482,7 @@ marginRight:10
                     Fiscal Year
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.FINANCIAL_YEAR}
+                    {invoiceData.FINANCIAL_YEAR}
                   </Typography>
                 </div>
                 <Divider />
@@ -485,7 +498,7 @@ marginRight:10
                     TCS Amount
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.TCS_AMOUNT}
+                    {invoiceData.TCS_AMOUNT}
                   </Typography>
                 </div>
                 <Divider />
@@ -501,7 +514,7 @@ marginRight:10
                     Digital Sign
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.DIGITAL_SIGN}
+                    {invoiceData.DIGITAL_SIGN}
                   </Typography>
                 </div>
                 <Divider />
@@ -517,7 +530,7 @@ marginRight:10
                     IRN Number
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.IRN_NUMBER}
+                    {invoiceData.IRN_NUMBER}
                   </Typography>
                 </div>
                 <Divider />
@@ -533,7 +546,7 @@ marginRight:10
                     Invoice Category
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.INVOICE_CATEGORY}
+                    {invoiceData.INVOICE_CATEGORY}
                   </Typography>
                 </div>
                 <Divider />
@@ -549,10 +562,9 @@ marginRight:10
                     Section Code
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.SECTION_CODE}
+                    {invoiceData.SECTION_CODE}
                   </Typography>
                 </div>
-              
               </Grid>
               <Grid item xs={gridSize}>
                 <div className="form-details">
@@ -567,7 +579,7 @@ marginRight:10
                     Derived Payment Date
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.PURCHASE_ORG}
+                    {invoiceData.PURCHASE_ORG}
                   </Typography>
                 </div>
                 <Divider />
@@ -583,7 +595,7 @@ marginRight:10
                     Vendor Code
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.VENDOR_CODE}
+                    {invoiceData.VENDOR_CODE}
                   </Typography>
                 </div>
                 <Divider />
@@ -599,7 +611,7 @@ marginRight:10
                     Vendor GSTIN
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.VENDOR_GSTIN}
+                    {invoiceData.VENDOR_GSTIN}
                   </Typography>
                 </div>
                 <Divider />
@@ -615,7 +627,7 @@ marginRight:10
                     Vendor Email
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.VENDOR_EMAIL}
+                    {invoiceData.VENDOR_EMAIL}
                   </Typography>
                 </div>
                 <Divider />
@@ -632,7 +644,7 @@ marginRight:10
                     Vendor Address
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.VENDOR_ADDRESS}
+                    {invoiceData.VENDOR_ADDRESS}
                   </Typography>
                 </div>
                 <Divider />
@@ -648,7 +660,7 @@ marginRight:10
                     Invoice Sub-Category
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.INVOICE_SUB_CATEGORY}
+                    {invoiceData.INVOICE_SUB_CATEGORY}
                   </Typography>
                 </div>
                 <Divider />
@@ -664,7 +676,7 @@ marginRight:10
                     Invoice Classification
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.INVOICE_CLASSIFICATION}
+                    {invoiceData.INVOICE_CLASSIFICATION}
                   </Typography>
                 </div>
                 <Divider />
@@ -680,7 +692,7 @@ marginRight:10
                     Process
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.PROCESS}
+                    {invoiceData.PROCESS}
                   </Typography>
                 </div>
                 <Divider />
@@ -696,7 +708,7 @@ marginRight:10
                     PO Type
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.SAP_PO_TYPE}
+                    {invoiceData.SAP_PO_TYPE}
                   </Typography>
                 </div>
                 <Divider />
@@ -712,7 +724,7 @@ marginRight:10
                     Invoice Source
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.SOURCE_OF_INVOICE}
+                    {invoiceData.SOURCE_OF_INVOICE}
                   </Typography>
                 </div>
                 <Divider />
@@ -728,10 +740,9 @@ marginRight:10
                     Business Place
                   </Typography>
                   <Typography className="typo-style">
-                  {invoiceData.BUSINESS_PLACE}
+                    {invoiceData.BUSINESS_PLACE}
                   </Typography>
                 </div>
-                
               </Grid>
             </Grid>
           </Paper>
@@ -741,9 +752,68 @@ marginRight:10
 
         <div className="button_div">
           <div className="inner_div">
-            <button className="button">Accept</button>
-            <button className="button">Hold</button>
-            <button className="button">Reject</button>
+            <button
+              className="button"
+              onClick={() => {
+                handleOpen();
+              }}
+            >
+              Accept
+            </button>
+            <Modal
+              aria-labelledby="modal-title"
+              aria-describedby="modal-desc"
+              open={open}
+              onClose={() => setOpen(false)}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Sheet
+                variant="outlined"
+                sx={{
+                  maxWidth: 500,
+                  borderRadius: "md",
+                  p: 3,
+                  boxShadow: "lg",
+                }}
+              >
+                <Typography
+                  component="h2"
+                  id="modal-title"
+                  level="h4"
+                  textColor="inherit"
+                  fontWeight="lg"
+                  mb={1}
+                >
+                  Are you Sure?
+                </Typography>
+                <TextField placeholder="Add comments" />
+                <div className="modal-box">
+                  <button
+                    onClick={() => {
+                      handleClose();
+                    }}
+                    className="cancel-btn"
+                  >
+                    Cancel
+                  </button>
+                  <button onClick={navigateToHome} className="modal-btn">
+                    Yes
+                  </button>
+                </div>
+              </Sheet>
+            </Modal>
+            <button
+              className="button"
+              onClick={() => {
+                handleOpen();
+              }}
+            >
+              Reject
+            </button>
             {/* <button className="button">Release Work Item</button> */}
             {/* <button className="button">Save & Close</button> */}
           </div>
