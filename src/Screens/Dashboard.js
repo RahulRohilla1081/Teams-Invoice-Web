@@ -54,32 +54,36 @@ function Dashboard() {
     setValue(newValue);
   };
 
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'grant_type' :'client_credentials',
+      "scope" : "https://graph.microsoft.com/.default",
+      "client_id": "233a2dbb-1b12-450a-a0c9-e15ccf17c997",
+      "client_secret": "LTg8Q~Y9WmPFhRqIf-zYn7fRZfc.JUYVutQdZdgj"
+    }
+  }
+
   useEffect(() => {
-    // const axios = require("axios");
-    // const FormData = require("form-data");
+    const FormData = require("form-data");
     let authData = new FormData();
     authData.append("grant_type", "client_credentials");
     authData.append("scope", "https://graph.microsoft.com/.default");
-    authData.append("client_id", "399d6188-dfc2-4224-a8fa-4374d992c9b6");
-    authData.append(
-      "client_secret",
-      "tjk8Q~It~pwdTJGqwtK8KaYnfaqGvAcmThzv1ddh"
-    );
+    authData.append("client_id", "233a2dbb-1b12-450a-a0c9-e15ccf17c997");
+    authData.append("client_secret", "LTg8Q~Y9WmPFhRqIf-zYn7fRZfc.JUYVutQdZdgj");
 
     axios
       .post(
-        "https://login.microsoftonline.com/adf953e1-1575-46ec-8398-5d4c7a540570/oauth2/v2.0/token",
-        authData
+        "https://login.microsoftonline.com/4a65d39e-b3a8-402e-86b0-c1316ba372ba/oauth2/v2.0/token",
+        config
       )
       .then((response) => {
-        // console.log("hsgdfjasfjf", JSON.stringify(response.data));
-        console.log("hufifihfhfuhdfu", FormData);
+        console.log("hsgdfjasfjf", response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.log("errorrrrrrr", error);
       });
   }, []);
-
 
 
   const formatDate = (currentDate) => {
